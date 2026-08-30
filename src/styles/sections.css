@@ -75,6 +75,29 @@
   display: block;
 }
 
+/* Las tres ondas de la medalla respiran juntas: un único grupo, una única
+   animación — nunca desfasadas entre sí. Sutil, elegante, no decorativa. */
+.systemring-waves {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .systemring-waves {
+    animation: systemring-wave-breathe 5200ms var(--ease-out) infinite;
+  }
+}
+
+@keyframes systemring-wave-breathe {
+  0%,
+  100% {
+    transform: translateY(0) scaleY(1);
+  }
+  50% {
+    transform: translateY(-2px) scaleY(1.05);
+  }
+}
+
 .hero__grid {
   position: relative;
   z-index: 1;
@@ -281,11 +304,14 @@
     justify-content: flex-start;
   }
 
+  /* Anillo más contenido que en la V2: un poco más pequeño y con menos
+     sangrado hacia el borde para que los cinco números exteriores (01–05)
+     queden siempre dentro del viewport, sin recortarse. */
   .hero__ring-layer {
     top: 50%;
     left: auto;
-    right: -6%;
-    width: min(94svh, 1180px);
+    right: 0%;
+    width: min(80svh, 980px);
     opacity: 0.6;
     transform: translate(calc(var(--px) * 1px), calc(-50% + var(--py) * 1px));
   }

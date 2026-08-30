@@ -88,6 +88,12 @@ export default function SonarField({ pointerRef, className }: SonarFieldProps) {
     const heroEl = canvas.closest('section')
     const ringLayer = heroEl?.querySelector('.hero__ring-layer')
     let labelRadiusPx = 0
+    /* El origen del pulso debe coincidir con el centro real del anillo — no
+       con el centro del hero — para que la onda nazca inequívocamente del
+       centro del sistema, sin importar el desplazamiento asimétrico del
+       anillo en desktop. */
+    let ringCenterX = 0
+    let ringCenterY = 0
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect()
@@ -96,7 +102,17 @@ export default function SonarField({ pointerRef, className }: SonarFieldProps) {
       canvas.width = Math.round(width * dpr)
       canvas.height = Math.round(height * dpr)
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
-      labelRadiusPx = ringLayer ? ringLayer.getBoundingClientRect().width * RING_LABEL_FRACTION : 0
+
+      if (ringLayer) {
+        const ringRect = ringLayer.getBoundingClientRect()
+        labelRadiusPx = ringRect.width * RING_LABEL_FRACTION
+        ringCenterX = ringRect.left - rect.left + ringRect.width / 2
+        ringCenterY = ringRect.top - rect.top + ringRect.height / 2
+      } else {
+        labelRadiusPx = 0
+        ringCenterX = width / 2
+        ringCenterY = height * 0.44
+      }
     }
 
     const seedParticles = () => {
@@ -117,8 +133,8 @@ export default function SonarField({ pointerRef, className }: SonarFieldProps) {
     const center = () => {
       const p = pointerRef.current ?? { x: 0, y: 0 }
       return {
-        x: width / 2 + p.x * 10,
-        y: height * 0.44 + p.y * 10,
+        x: ringCenterX + p.x * 10,
+        y: ringCenterY + p.y * 10,
       }
     }
 
@@ -205,7 +221,7 @@ export default function SonarField({ pointerRef, className }: SonarFieldProps) {
     if (reduced) {
       // Estado asentado: tres anillos concéntricos tenues, uno por color del
       // recorrido del pulso, sin movimiento
-      const c = { x: width / 2, y: height / 2 }
+      const c = { x: ringCenterX, y: ringCenterY }
       const maxR = Math.hypot(width, height) * 0.55
       const staticRings: Array<[number, string]> = [
         [0.35, 'rgba(95, 168, 255, 0.08)'],

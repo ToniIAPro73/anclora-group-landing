@@ -14,6 +14,22 @@ interface SystemRingProps {
 
 const TAU = Math.PI * 2
 
+/** Traza una onda sinusoidal suave entre dos extremos horizontales — la
+    misma ondulación de las tres ondas plateadas de la medalla oficial de
+    Anclora Group, muestreada en segmentos rectos finos (suave a la escala
+    de render del anillo, sin depender de curvas bezier). */
+function wavePath(centerX: number, y: number, halfWidth: number, amplitude: number, periods: number): string {
+  const segments = 40
+  let d = ''
+  for (let i = 0; i <= segments; i++) {
+    const t = i / segments
+    const x = centerX - halfWidth + t * halfWidth * 2
+    const py = y + amplitude * Math.sin(t * periods * Math.PI * 2)
+    d += `${i === 0 ? 'M' : 'L'}${x.toFixed(2)} ${py.toFixed(2)} `
+  }
+  return d.trim()
+}
+
 /** Fracción del radio de etiquetas respecto al tamaño total del SVG: los
     números van FUERA del anillo (labelR = size*0.455), junto al borde, para
     no solaparse nunca con el titular. La usa SonarField para saber cuándo el
@@ -159,19 +175,23 @@ export default function SystemRing({
         opacity={0.9}
       />
 
-      {/* Las tres ondas de la medalla, reinterpretadas como líneas de estado */}
-      {[0, 1, 2].map((i) => (
-        <line
-          key={`wave-${i}`}
-          x1={center - size * 0.16}
-          x2={center + size * 0.16}
-          y1={waveBandTop + i * waveBandGap}
-          y2={waveBandTop + i * waveBandGap}
-          stroke="rgba(229, 231, 235, 0.55)"
-          strokeWidth={2}
-          strokeLinecap="round"
-        />
-      ))}
+      {/* Las tres ondas de la medalla oficial, a escala del anillo: misma
+          ondulación, mismo grosor y color plateado — respiran juntas como un
+          único grupo (ver .systemring-waves en sections.css) para que el
+          movimiento sea simultáneo y coherente, nunca desfasado. */}
+      <g className="systemring-waves">
+        {[0, 1, 2].map((i) => (
+          <path
+            key={`wave-${i}`}
+            d={wavePath(center, waveBandTop + i * waveBandGap, size * 0.16, size * 0.014, 1.5)}
+            fill="none"
+            stroke="rgba(229, 231, 235, 0.55)"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        ))}
+      </g>
 
       {labels.map((label, i) => {
         const angle = -Math.PI / 2 + (i / labels.length) * TAU

@@ -3,7 +3,6 @@ import { useLocale } from '../i18n/useLocale'
 import { ecosystemLines } from '../data/ecosystem'
 import SystemRing from '../components/SystemRing'
 import SonarField from '../components/SonarField'
-import AnchorMark from '../components/AnchorMark'
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll'
 
 /**
@@ -49,9 +48,6 @@ export default function Hero() {
       onPointerLeave={handlePointerLeave}
     >
       <div className="hero__field" aria-hidden="true" />
-      <div className="hero__anchor-mark" aria-hidden="true">
-        <AnchorMark variant="field" />
-      </div>
       <SonarField pointerRef={pointerRef} className="hero__sonar" />
       <div className="hero__ring-layer" aria-hidden="true">
         <SystemRing size={1080} labels={lineLabels} activeIndex={0} ariaLabel={t.hero.instrumentCaption} />

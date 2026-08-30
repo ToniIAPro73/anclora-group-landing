@@ -1,6 +1,5 @@
 import { useLocale } from '../i18n/useLocale'
 import SectionHeader from '../components/SectionHeader'
-import AnchorMark from '../components/AnchorMark'
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll'
 
 export default function Founder() {
@@ -33,9 +32,6 @@ export default function Founder() {
               loading="lazy"
             />
             <figcaption className="mono">Antonio Ballesteros</figcaption>
-            <span className="founder-monogram">
-              <AnchorMark variant="mono" />
-            </span>
           </figure>
         </div>
       </div>

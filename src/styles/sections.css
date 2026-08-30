@@ -38,26 +38,6 @@
   pointer-events: none;
 }
 
-/* Activo de marca: el ancla reducida a línea fina, capa detrás del anillo
-   que aporta profundidad de instrumento sin repetir el mismo círculo. */
-.hero__anchor-mark {
-  position: absolute;
-  top: 46%;
-  left: 50%;
-  width: min(104svh, 1280px);
-  aspect-ratio: 1;
-  transform: translate(-50%, -50%);
-  color: var(--anclora-gold);
-  opacity: 0.5;
-  pointer-events: none;
-}
-
-.hero__anchor-mark svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
 .hero__ring-layer {
   position: absolute;
   top: 46%;
@@ -128,11 +108,6 @@
     width: 150vmin;
     opacity: 0.42;
     mask-image: radial-gradient(65% 65% at 50% 50%, black 55%, transparent 94%);
-  }
-  .hero__anchor-mark {
-    top: 42%;
-    width: 170vmin;
-    opacity: 0.28;
   }
 }
 
@@ -315,15 +290,6 @@
     transform: translate(calc(var(--px) * 1px), calc(-50% + var(--py) * 1px));
   }
 
-  .hero__anchor-mark {
-    top: 50%;
-    left: auto;
-    right: -14%;
-    width: min(108svh, 1360px);
-    opacity: 0.5;
-    transform: translate(0, -50%);
-  }
-
   .hero__copy {
     margin-inline: 0;
     max-width: 620px;
@@ -379,9 +345,6 @@
   .hero__ring-layer {
     width: min(58svh, 620px);
     opacity: 0.3;
-  }
-  .hero__anchor-mark {
-    display: none;
   }
   .hero__status {
     margin-top: var(--space-2);
@@ -957,29 +920,6 @@
   height: auto;
   filter: grayscale(1) contrast(1.08);
   mix-blend-mode: luminosity;
-}
-
-/* Placa de identidad: mismo trazo de ancla que el hero, en miniatura, como
-   sello de autoridad — no un avatar decorativo suelto. */
-.founder-monogram {
-  position: absolute;
-  z-index: 2;
-  top: -16px;
-  right: -16px;
-  width: 52px;
-  height: 52px;
-  padding: 8px;
-  color: var(--anclora-gold);
-  background: var(--anchor-navy);
-  border: var(--border-subtle);
-  border-radius: 50%;
-  box-shadow: var(--panel-depth);
-}
-
-.founder-monogram svg {
-  width: 100%;
-  height: 100%;
-  display: block;
 }
 
 .founder-portrait figcaption {

@@ -9,6 +9,9 @@ export interface Product {
   description: string
   tier: ProductTier
   status?: ProductStatus
+  /** Landing propia del producto, cuando existe destino confirmado. Sin URL confirmada
+      en el repo, el CTA cae a #contact (ver Known gaps del informe de rediseño). */
+  productUrl?: string
 }
 
 // Productos — sección 10 del brand book. `name` (marca) y jerarquía (`tier`) son fijos en todos

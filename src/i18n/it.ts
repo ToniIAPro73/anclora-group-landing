@@ -133,11 +133,11 @@ const it: Dictionary = {
     backHome: 'Torna alla home',
     privacy: {
       title: 'Informativa sulla Privacy',
-      body: 'Questo documento descriverà come Anclora Group raccoglie, utilizza e protegge i dati personali delle persone che visitano group.anclora.com. Per qualsiasi domanda sulla privacy, scrivi a antonio@anclora.com.',
+      body: 'Questo documento descriverà come Anclora Group raccoglie, utilizza e protegge i dati personali delle persone che visitano anclora.com. Per qualsiasi domanda sulla privacy, scrivi a antonio@anclora.com.',
     },
     terms: {
       title: 'Termini e Condizioni',
-      body: 'Questo documento descriverà le condizioni di utilizzo del sito group.anclora.com e dei servizi offerti da Anclora Group. Per qualsiasi domanda, scrivi a antonio@anclora.com.',
+      body: 'Questo documento descriverà le condizioni di utilizzo del sito anclora.com e dei servizi offerti da Anclora Group. Per qualsiasi domanda, scrivi a antonio@anclora.com.',
     },
     legal: {
       title: 'Note Legali',
@@ -145,7 +145,7 @@ const it: Dictionary = {
     },
     cookiesPage: {
       title: 'Informativa sui Cookie',
-      body: 'Questo documento descriverà in dettaglio l’uso dei cookie su group.anclora.com. Attualmente il sito utilizza solo cookie tecnici necessari al suo funzionamento; non vengono utilizzati cookie di analisi o marketing. Per qualsiasi domanda, scrivi a antonio@anclora.com.',
+      body: 'Questo documento descriverà in dettaglio l’uso dei cookie su anclora.com. Attualmente il sito utilizza solo cookie tecnici necessari al suo funzionamento; non vengono utilizzati cookie di analisi o marketing. Per qualsiasi domanda, scrivi a antonio@anclora.com.',
     },
   },
 }

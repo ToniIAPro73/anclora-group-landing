@@ -2,7 +2,7 @@
 
 **Versión:** 2.0 (definitiva)
 **Estado:** Oficial — consolida y sustituye `anclora-group-brand-book.md` v1.0 y `anclora-group-brand-identity-system.md`
-**Dominio objetivo:** `group.anclora.com`
+**Dominio objetivo:** `anclora.com`
 **Contacto principal:** `antonio@anclora.com`
 
 ---
@@ -14,7 +14,7 @@ Este brand book es la **fuente única de verdad** de la identidad de **Anclora G
 1. El sistema estratégico y verbal validado (posicionamiento, voz, arquitectura de marca).
 2. La paleta resuelta conforme al Skill Máster Definitivo Anclora v4.1.
 3. El sistema de logo completo (medalla + lockups + monocromos + favicons).
-4. Tokens de diseño implementables (color, tipo, espaciado, radio, movimiento) para la landing en `group.anclora.com`.
+4. Tokens de diseño implementables (color, tipo, espaciado, radio, movimiento) para la landing en `anclora.com`.
 5. Copy base y estructura recomendada de la landing.
 
 Debe usarse como referencia para diseño, desarrollo, comunicación pública y cualquier pieza corporativa del grupo.
@@ -351,7 +351,7 @@ Ejecución antes que narrativa. — Los productos demuestran; la marca no promet
 
 ---
 
-## 15. Landing page — estructura recomendada (`group.anclora.com`)
+## 15. Landing page — estructura recomendada (`anclora.com`)
 
 1. **Header:** lockup horizontal, navegación (Ecosistema, Productos, Método, Founder, Contacto), selector de idioma, CTA compacto.
 2. **Hero:** tagline + versión hero + CTAs principal y secundario. Debe explicar la marca en 5 segundos.
@@ -425,4 +425,4 @@ Las traducciones CAT/DE/FR/IT deben revisarse antes de publicación final si la 
 
 ## 20. Siguiente fase
 
-El sistema de identidad de Anclora Group queda **cerrado**: logo con todas sus variantes, favicons, paleta verificada, tipografía, tokens y sistema verbal completos. No queda ningún bloqueo para ejecutar la landing de `group.anclora.com`.
+El sistema de identidad de Anclora Group queda **cerrado**: logo con todas sus variantes, favicons, paleta verificada, tipografía, tokens y sistema verbal completos. No queda ningún bloqueo para ejecutar la landing de `anclora.com`.

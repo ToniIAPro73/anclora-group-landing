@@ -1,16 +1,18 @@
+import { useId } from 'react'
 import { useLocale } from '../i18n/useLocale'
 import { LOCALES, LOCALE_LABELS, type Locale } from '../i18n'
 
 export default function LanguageSwitcher() {
   const { locale, setLocale } = useLocale()
+  const selectId = useId()
 
   return (
     <div className="language-switcher">
-      <label htmlFor="language-switcher-select" className="visually-hidden">
+      <label htmlFor={selectId} className="visually-hidden">
         Idioma
       </label>
       <select
-        id="language-switcher-select"
+        id={selectId}
         value={locale}
         onChange={(event) => setLocale(event.target.value as Locale)}
       >

@@ -38,6 +38,26 @@
   pointer-events: none;
 }
 
+/* Activo de marca: el ancla reducida a línea fina, capa detrás del anillo
+   que aporta profundidad de instrumento sin repetir el mismo círculo. */
+.hero__anchor-mark {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  width: min(104svh, 1280px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  color: var(--anclora-gold);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.hero__anchor-mark svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 .hero__ring-layer {
   position: absolute;
   top: 46%;
@@ -108,6 +128,11 @@
     width: 150vmin;
     opacity: 0.42;
     mask-image: radial-gradient(65% 65% at 50% 50%, black 55%, transparent 94%);
+  }
+  .hero__anchor-mark {
+    top: 42%;
+    width: 170vmin;
+    opacity: 0.28;
   }
 }
 
@@ -272,6 +297,101 @@
   }
 }
 
+/* V2 — composición cinematográfica: en desktop el anillo deja de ser un
+   fondo centrado bajo el titular y pasa a ser una masa asimétrica que
+   sangra hacia el borde derecho; el copy se ancla a la izquierda con su
+   propio eje de lectura. Un solo focal point, más profundidad, más aire. */
+@media (min-width: 1100px) {
+  .hero__grid {
+    justify-content: flex-start;
+  }
+
+  .hero__ring-layer {
+    top: 50%;
+    left: auto;
+    right: -6%;
+    width: min(94svh, 1180px);
+    opacity: 0.6;
+    transform: translate(calc(var(--px) * 1px), calc(-50% + var(--py) * 1px));
+  }
+
+  .hero__anchor-mark {
+    top: 50%;
+    left: auto;
+    right: -14%;
+    width: min(108svh, 1360px);
+    opacity: 0.5;
+    transform: translate(0, -50%);
+  }
+
+  .hero__copy {
+    margin-inline: 0;
+    max-width: 620px;
+    text-align: left;
+  }
+
+  .hero__copy::before {
+    inset: -10% -12% -10% -28%;
+    background: linear-gradient(100deg, rgba(10, 31, 61, 0.86) 42%, rgba(10, 31, 61, 0.25) 78%, transparent 92%);
+  }
+
+  .hero__tagline,
+  .hero__subtitle {
+    margin-inline: 0;
+  }
+
+  .hero__actions {
+    justify-content: flex-start;
+  }
+
+  .hero__status-caption {
+    margin-inline: 0;
+    text-align: left;
+  }
+
+  .hero__status-list {
+    justify-content: flex-start;
+  }
+}
+
+/* Mobile landscape (teléfono apaisado): viewport crítico propio (sección 27).
+   min-height fijo deja de forzar el hero a llenar la pantalla — el contenido
+   fluye a su altura natural y el CTA cae dentro del primer pantallazo. */
+@media (max-height: 480px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding-block: var(--space-2);
+  }
+  .hero__eyebrow {
+    margin-bottom: var(--space-1);
+  }
+  .hero h1 {
+    font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
+    margin-bottom: var(--space-1);
+  }
+  .hero__tagline {
+    font-size: 1rem;
+    margin-bottom: var(--space-1);
+  }
+  .hero__subtitle {
+    display: none;
+  }
+  .hero__ring-layer {
+    width: min(58svh, 620px);
+    opacity: 0.3;
+  }
+  .hero__anchor-mark {
+    display: none;
+  }
+  .hero__status {
+    margin-top: var(--space-2);
+    padding-top: var(--space-2);
+  }
+  .hero__status-caption {
+    display: none;
+  }
+}
+
 /* Evidence — proof strip: tres señales concretas antes del catálogo. Refuerza
    valor sin crear otra hero ni ralentizar el primer viewport. */
 .evidence {
@@ -282,36 +402,69 @@
     rgba(17, 24, 39, 0.62);
 }
 
+/* V2 — de "métrica SaaS" a señal de operación: sin cards, sin fondo propio
+   por celda; una sola tira editorial con divisores finos y el número en
+   escala tipográfica grande (el dato es el protagonista, no el panel). */
 .evidence__inner {
-  display: grid;
-  gap: 1px;
-  padding-block: var(--space-3);
-  background: rgba(229, 231, 235, 0.08);
+  display: flex;
+  flex-direction: column;
+  padding-block: var(--space-4);
 }
 
 .evidence-metric {
-  padding: var(--space-3);
-  background: rgba(10, 31, 61, 0.78);
+  padding-block: var(--space-2);
+  border-top: 1px solid rgba(229, 231, 235, 0.1);
+}
+
+.evidence-metric:first-child {
+  border-top: none;
 }
 
 .evidence-metric__value {
   color: var(--anclora-gold);
+  font-size: clamp(1.75rem, 2.4vw + 1rem, 2.5rem);
+  letter-spacing: -0.01em;
 }
 
 .evidence-metric h3 {
-  margin-top: 4px;
+  margin-top: 2px;
   color: var(--white-deck);
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .evidence-metric p:last-child {
-  margin-top: 4px;
+  margin-top: 2px;
   color: var(--harbor-mist);
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
 }
 
 @media (min-width: 800px) {
   .evidence__inner {
-    grid-template-columns: repeat(3, 1fr);
+    flex-direction: row;
+    align-items: baseline;
+  }
+
+  .evidence-metric {
+    flex: 1;
+    padding-block: 0;
+    padding-inline: var(--space-4);
+    border-top: none;
+    border-left: 1px solid rgba(229, 231, 235, 0.14);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: var(--space-3);
+    align-items: baseline;
+  }
+
+  .evidence-metric:first-child {
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .evidence-metric__value {
+    grid-row: 1 / span 2;
   }
 }
 
@@ -430,6 +583,16 @@
     grid-column: 3;
     justify-content: flex-end;
   }
+
+  /* V2 — desfase alterno: cada línea entra ligeramente desplazada, sistema
+     de contactos escalonados en vez de una fila plana repetida. */
+  .ecosystem-rail:nth-child(even) {
+    padding-left: var(--space-4);
+  }
+
+  .ecosystem-rail__index {
+    font-size: 0.9375rem;
+  }
 }
 
 /* Products — un solo chasis: las cinco insignias y los cuatro módulos de
@@ -446,19 +609,74 @@
   overflow: hidden;
 }
 
-/* Fila flexible: las cinco insignias se reparten el ancho a partes iguales y,
-   al envolver, las celdas de la última línea crecen hasta llenarla — nunca
-   queda un hueco vacío rompiendo la carrocería */
+/* V2 — de cinco celdas iguales a portfolio editorial: cada insignia ocupa
+   una fila completa, con su número de serie propio y el nombre a escala de
+   titular. Ya no compiten entre sí por el mismo espacio; cada una respira. */
 .products-chassis__flagship {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1px;
-  background: rgba(229, 231, 235, 0.08);
+  flex-direction: column;
+  counter-reset: flagship;
 }
 
 .products-chassis__flagship > * {
-  flex: 1 1 230px;
+  flex: none;
   background: var(--deep-ocean);
+  border-bottom: var(--border-subtle);
+}
+
+.products-chassis__flagship > *:last-child {
+  border-bottom: none;
+}
+
+.products-chassis__flagship .product-card--cell {
+  counter-increment: flagship;
+  position: relative;
+  padding-left: calc(var(--space-4) + 52px);
+}
+
+.products-chassis__flagship .product-card--cell::before {
+  content: counter(flagship, decimal-leading-zero);
+  position: absolute;
+  left: var(--space-3);
+  top: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  color: rgba(197, 160, 89, 0.4);
+  line-height: 1;
+}
+
+.products-chassis__flagship .product-card__body h3 {
+  font-size: clamp(1.375rem, 1.4vw + 1rem, 1.875rem);
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 900px) {
+  .products-chassis__flagship .product-card--cell {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: var(--space-4);
+    align-items: start;
+    padding-left: calc(var(--space-4) + 64px);
+  }
+
+  .products-chassis__flagship .product-card--cell::before {
+    font-size: 2rem;
+    top: var(--space-4);
+  }
+
+  .products-chassis__flagship .product-card__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .products-chassis__flagship .product-card__cta {
+    grid-column: 2;
+  }
+
+  .products-chassis__flagship .product-card--cell:nth-child(even) {
+    background: rgba(95, 168, 255, 0.035);
+  }
 }
 
 .products-chassis__modules {
@@ -649,6 +867,18 @@
   .method-step::before {
     top: 0;
   }
+
+  /* V2 — secuencia arquitectónica: el texto de los pasos pares cae un
+     escalón por debajo de los impares. Los nodos siguen anclados a la
+     línea; sólo el contenido gana profundidad de lectura. */
+  .method-step:nth-child(even) h3,
+  .method-step:nth-child(even) p {
+    transform: translateY(var(--space-4));
+  }
+
+  .method-step:nth-child(even) {
+    padding-bottom: var(--space-4);
+  }
 }
 
 /* Founder — retrato duotono navy/plata en layout asimétrico: la foto no es un
@@ -674,9 +904,14 @@
   max-width: 68ch;
 }
 
+/* V2 — de párrafo plano a declaración con autoridad: regla dorada a la
+   izquierda (cita de responsabilidad, no bio), escala tipográfica mayor. */
 .founder__lead {
-  color: var(--harbor-mist);
-  font-size: 1.125rem;
+  color: var(--white-deck);
+  font-size: clamp(1.125rem, 1vw + 1rem, 1.375rem);
+  line-height: 1.55;
+  border-left: 2px solid rgba(197, 160, 89, 0.5);
+  padding-left: var(--space-3);
 }
 
 .founder-portrait {
@@ -724,6 +959,29 @@
   mix-blend-mode: luminosity;
 }
 
+/* Placa de identidad: mismo trazo de ancla que el hero, en miniatura, como
+   sello de autoridad — no un avatar decorativo suelto. */
+.founder-monogram {
+  position: absolute;
+  z-index: 2;
+  top: -16px;
+  right: -16px;
+  width: 52px;
+  height: 52px;
+  padding: 8px;
+  color: var(--anclora-gold);
+  background: var(--anchor-navy);
+  border: var(--border-subtle);
+  border-radius: 50%;
+  box-shadow: var(--panel-depth);
+}
+
+.founder-monogram svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 .founder-portrait figcaption {
   position: absolute;
   left: var(--space-2);
@@ -758,29 +1016,33 @@
   color: var(--signal-blue);
 }
 
-/* Principles */
+/* Principles — V2: manifiesto de una sola columna, no grid de dos. El
+   índice pasa a ser una cifra grande (criterio numerado), no una etiqueta
+   discreta junto al texto. */
 .principles-list {
-  display: grid;
-  gap: 0;
-}
-
-@media (min-width: 700px) {
-  .principles-list {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: var(--space-6);
-  }
+  display: flex;
+  flex-direction: column;
+  max-width: 72ch;
 }
 
 .principle {
   display: flex;
-  gap: var(--space-2);
+  align-items: baseline;
+  gap: var(--space-4);
   border-top: var(--border-subtle);
-  padding-block: var(--space-3);
+  padding-block: var(--space-4);
 }
 
 .principle__index {
+  flex-shrink: 0;
+  min-width: 52px;
   color: var(--anclora-gold);
-  padding-top: 2px;
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.principle h3 {
+  font-size: 1.125rem;
 }
 
 .principle p {
@@ -802,6 +1064,23 @@
   margin-inline: auto;
 }
 
+/* V2 — cierre como portada final: eyebrow de marca + titular a escala
+   mayor. Última palabra de la narrativa, no un formulario de contacto. */
+.contact::before {
+  content: 'ANCLORA GROUP';
+  display: block;
+  margin-bottom: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  color: var(--signal-blue);
+}
+
+.contact h2 {
+  font-size: clamp(2.25rem, 3vw + 1.5rem, 3.25rem);
+  letter-spacing: -0.02em;
+}
+
 .contact p {
   color: var(--harbor-mist);
   margin-inline: auto;
@@ -815,5 +1094,5 @@
 }
 
 .contact__cta {
-  margin-top: var(--space-3);
+  margin-top: var(--space-4);
 }

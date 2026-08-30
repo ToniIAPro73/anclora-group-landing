@@ -131,11 +131,11 @@ const en: Dictionary = {
     backHome: 'Back to home',
     privacy: {
       title: 'Privacy Policy',
-      body: 'This document will describe how Anclora Group collects, uses and protects the personal data of people who visit group.anclora.com. For any privacy question, write to antonio@anclora.com.',
+      body: 'This document will describe how Anclora Group collects, uses and protects the personal data of people who visit anclora.com. For any privacy question, write to antonio@anclora.com.',
     },
     terms: {
       title: 'Terms & Conditions',
-      body: 'This document will describe the terms of use of group.anclora.com and the services offered by Anclora Group. For any question, write to antonio@anclora.com.',
+      body: 'This document will describe the terms of use of anclora.com and the services offered by Anclora Group. For any question, write to antonio@anclora.com.',
     },
     legal: {
       title: 'Legal Notice',
@@ -143,7 +143,7 @@ const en: Dictionary = {
     },
     cookiesPage: {
       title: 'Cookie Policy',
-      body: 'This document will describe in detail the use of cookies on group.anclora.com. The site currently only uses technical cookies necessary for it to work; no analytics or marketing cookies are used. For any question, write to antonio@anclora.com.',
+      body: 'This document will describe in detail the use of cookies on anclora.com. The site currently only uses technical cookies necessary for it to work; no analytics or marketing cookies are used. For any question, write to antonio@anclora.com.',
     },
   },
 }

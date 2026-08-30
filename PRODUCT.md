@@ -29,7 +29,7 @@ Anclora Group es una boutique tecnológica founder-led que diseña, valida y ope
 
 - Ecosistema de 9 productos organizados en 5 líneas estratégicas (Fiscal & Compliance, Operational Automation, Energy & Efficiency, Real Estate Intelligence, Publishing & Digital Knowledge), cada una con jerarquía de visibilidad (Nivel 1 comercial, Nivel 2 infraestructura, Nivel 3 oculto deliberadamente).
 - Sistema multilingüe: ES (por defecto), CAT, EN, DE, FR, IT — el tono se localiza, no se traduce literalmente.
-- Dominio objetivo de despliegue: `group.anclora.com`.
+- Dominio objetivo de despliegue: `anclora.com`.
 - La landing es un nodo de navegación hacia las landings propias de cada producto/línea; no reemplaza su contenido.
 
 ## Capabilities and Constraints

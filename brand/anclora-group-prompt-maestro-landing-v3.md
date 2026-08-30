@@ -2,7 +2,7 @@
 
 **Estado:** Sustituye a `anclora-group-prompt-maestro-landing-v2.md`.
 **Motivo de la revisión:** v2 se apoyaba en el brand book v1.0. Esta versión incorpora el **brand book v2.0 definitivo**: tabla de contrastes WCAG medida, escala tipográfica concreta, tokens de espaciado/radio/movimiento, favicons ya producidos y un piso de calidad anti-genérico con criterios de verificación acotados.
-**Uso:** instrucción principal end-to-end para un agente IA de desarrollo (Claude Code, Codex o equivalente) que implementará la landing completa de Anclora Group en `group.anclora.com`.
+**Uso:** instrucción principal end-to-end para un agente IA de desarrollo (Claude Code, Codex o equivalente) que implementará la landing completa de Anclora Group en `anclora.com`.
 **Documentos de referencia obligatoria** (adjuntar junto a este prompt):
 ```text
 anclora-group-brand-book-v2.md        (fuente única de verdad de la identidad)
@@ -18,7 +18,7 @@ Actúa como un agente senior full-stack especializado en diseño premium, fronte
 Tu tarea es crear la landing page completa de **Anclora Group**, asociada al dominio:
 
 ```text
-group.anclora.com
+anclora.com
 ```
 
 La landing debe presentar la identidad de marca, el ecosistema de productos y la figura founder-led de Antonio Ballesteros con una ejecución visual premium, sobria, tecnológica, clara y escalable.
@@ -66,7 +66,7 @@ Productos digitales para convertir procesos complejos en sistemas claros, útile
 ## 3. Dominio y contacto
 
 ```text
-Dominio objetivo: group.anclora.com
+Dominio objetivo: anclora.com
 Email de contacto principal: antonio@anclora.com
 ```
 
@@ -455,11 +455,11 @@ Los archivos de /assets/logo/ se copian literalmente del zip — no regenerar, n
 ```text
 title: Anclora Group · Tecnología aplicada para operar con claridad
 description: Anclora Group crea productos digitales propios para fiscalidad, automatización, eficiencia, inteligencia inmobiliaria, contenido y operaciones empresariales.
-canonical: https://group.anclora.com
+canonical: https://anclora.com
 og:title: Anclora Group
 og:description: Tecnología aplicada para operar con más claridad, control e inteligencia.
 og:type: website
-og:url: https://group.anclora.com
+og:url: https://anclora.com
 og:image: versión 1200×630 derivada del lockup horizontal sobre oscuro
 hreflang: es, ca, en, de, fr, it (si las rutas por idioma existen)
 ```
@@ -529,7 +529,7 @@ La estética es premium, tecnológica y naval — no editorial ni genérica (sec
 El logo real se usa correctamente en todas sus variantes, sin regenerar ni recolorear.
 La paleta y los tokens implementados coinciden exactamente con las secciones 6 y 8.
 Los contrastes aplicados respetan la tabla medida de la sección 6.
-El email principal es antonio@anclora.com. El dominio objetivo es group.anclora.com.
+El email principal es antonio@anclora.com. El dominio objetivo es anclora.com.
 El idioma por defecto es ES, con i18n centralizado para ES/CAT/EN/DE/FR/IT.
 La web es responsive y accesible (AA), con prefers-reduced-motion respetado.
 No se muestran productos de Nivel 3. No hay claims no demostrados.

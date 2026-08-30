@@ -33,11 +33,21 @@ export default function ProductCard({ product, ctaLabel, variant = 'card' }: Pro
         <h3>{product.name}</h3>
         <p>{description}</p>
       </div>
-      {ctaLabel && (
-        <a className="product-card__cta" href="#contact">
-          {ctaLabel}
-        </a>
-      )}
+      {ctaLabel &&
+        (product.productUrl ? (
+          <a
+            className="product-card__cta"
+            href={product.productUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {ctaLabel}
+          </a>
+        ) : (
+          <a className="product-card__cta" href="#contact">
+            {ctaLabel}
+          </a>
+        ))}
     </article>
   )
 }

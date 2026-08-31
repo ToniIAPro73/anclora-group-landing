@@ -9,7 +9,7 @@ export default function Ecosystem() {
   const revealRef = useRevealOnScroll<HTMLDivElement>()
 
   return (
-    <section id="ecosystem" className="section">
+    <section className="section">
       <div className="container">
         <SectionHeader title={t.ecosystem.title} text={t.ecosystem.text} />
         <div ref={revealRef} className="ecosystem-rail-list is-reveal-group is-reveal-group--stagger">

@@ -1,6 +1,7 @@
 import { useLocale } from '../i18n/useLocale'
 import { ecosystemLines } from '../data/ecosystem'
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll'
+import { scrollToSection } from '../navigation/scroll'
 
 export default function Hero() {
   const { t } = useLocale()
@@ -17,7 +18,15 @@ export default function Hero() {
           <p className="hero__tagline">{t.hero.tagline}</p>
           <p className="hero__subtitle">{t.hero.subtitle}</p>
           <div className="hero__actions">
-            <a href="#ecosystem" className="btn btn-primary">
+            <a
+              href="#ecosystem"
+              className="btn btn-primary"
+              onClick={(event) => {
+                if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+                event.preventDefault()
+                scrollToSection('ecosystem', { updateHash: true })
+              }}
+            >
               {t.hero.ctaPrimary}
             </a>
             <a href="#contact" className="btn btn-secondary">

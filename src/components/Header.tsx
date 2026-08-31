@@ -1,30 +1,24 @@
-import { useCallback, useEffect, useRef, useState, type MouseEvent } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type MouseEvent } from 'react'
 import { useLocale } from '../i18n/useLocale'
 import { useNavigation } from '../context/useNavigation'
 import LanguageSwitcher from './LanguageSwitcher'
 import lockupHorizontalDark from '../assets/logo/anclora-group-lockup-horizontal-sobre-oscuro-64.webp'
-
-const NAV_ITEMS = [
-  { href: '#ecosystem', key: 'ecosystem' as const },
-  { href: '#products', key: 'products' as const },
-  { href: '#method', key: 'method' as const },
-  { href: '#founder', key: 'founder' as const },
-  { href: '#contact', key: 'contact' as const },
-]
+import { HEADER_SECTIONS, SECTION_IDS, getSectionHref, type HeaderNavKey } from '../navigation/sections'
+import { scrollToSection, sectionIdFromHash, syncHeaderOffset } from '../navigation/scroll'
+import { useActiveSectionIndex } from '../hooks/useActiveSectionIndex'
 
 export default function Header() {
   const { t } = useLocale()
   const { path, navigate } = useNavigation()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const menuToggleRef = useRef<HTMLButtonElement>(null)
+  const activeSectionIndex = useActiveSectionIndex(SECTION_IDS)
+  const activeSectionId = SECTION_IDS[activeSectionIndex]
 
-  // En una página legal (/privacy, etc.) las anclas #ecosystem, #contact... no
-  // apuntan a nada: primero hay que volver a "/" y luego desplazarse al ancla.
-  const scrollToHash = useCallback((hash: string) => {
-    requestAnimationFrame(() => {
-      document.getElementById(hash.slice(1))?.scrollIntoView({ block: 'start' })
-    })
-  }, [])
+  const navItems = useMemo(
+    () => HEADER_SECTIONS.map((section) => ({ id: section.id, href: getSectionHref(section.id), key: section.navKey })),
+    [],
+  )
 
   const closeMenu = useCallback((restoreFocus = true) => {
     setIsMenuOpen(false)
@@ -38,6 +32,8 @@ export default function Header() {
   const handleAnchorClick = useCallback(
     (event: MouseEvent<HTMLAnchorElement>, hash: string) => {
       if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+      const sectionId = sectionIdFromHash(hash)
+      if (!sectionId) return
       event.preventDefault()
       closeMenu(false)
 
@@ -45,10 +41,9 @@ export default function Header() {
         navigate('/')
       }
 
-      window.history.pushState({}, '', hash)
-      scrollToHash(hash)
+      requestAnimationFrame(() => scrollToSection(sectionId, { updateHash: true }))
     },
-    [closeMenu, navigate, path, scrollToHash],
+    [closeMenu, navigate, path],
   )
 
   const toggleMenu = () => {
@@ -58,6 +53,12 @@ export default function Header() {
       setIsMenuOpen(true)
     }
   }
+
+  useEffect(() => {
+    syncHeaderOffset()
+    window.addEventListener('resize', syncHeaderOffset)
+    return () => window.removeEventListener('resize', syncHeaderOffset)
+  }, [])
 
   useEffect(() => {
     if (!isMenuOpen) return
@@ -80,9 +81,15 @@ export default function Header() {
         </a>
 
         <nav className="site-header__nav" aria-label="Navegación principal">
-          {NAV_ITEMS.map((item) => (
-            <a key={item.key} href={item.href} onClick={(event) => handleAnchorClick(event, item.href)}>
-              {t.nav[item.key]}
+          {navItems.map((item) => (
+            <a
+              key={item.key}
+              href={item.href}
+              className={activeSectionId === item.id ? 'is-active' : undefined}
+              aria-current={activeSectionId === item.id ? 'page' : undefined}
+              onClick={(event) => handleAnchorClick(event, item.href)}
+            >
+              {t.nav[item.key as HeaderNavKey]}
             </a>
           ))}
         </nav>
@@ -112,16 +119,17 @@ export default function Header() {
 
       {isMenuOpen && (
         <nav id="mobile-nav" className="site-header__mobile-nav container" aria-label="Navegación móvil">
-          {NAV_ITEMS.map((item) => (
+          {navItems.map((item) => (
             <a
               key={item.key}
               href={item.href}
+              aria-current={activeSectionId === item.id ? 'page' : undefined}
               onClick={(event) => {
                 handleAnchorClick(event, item.href)
                 closeMenu()
               }}
             >
-              {t.nav[item.key]}
+              {t.nav[item.key as HeaderNavKey]}
             </a>
           ))}
         </nav>

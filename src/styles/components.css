@@ -55,11 +55,13 @@
   transition: transform var(--dur-base) var(--ease-out);
 }
 
-.site-header__nav a:hover {
+.site-header__nav a:hover,
+.site-header__nav a.is-active {
   color: var(--signal-blue);
 }
 
-.site-header__nav a:hover::after {
+.site-header__nav a:hover::after,
+.site-header__nav a.is-active::after {
   transform: scaleX(1);
 }
 

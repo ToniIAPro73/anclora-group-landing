@@ -1,40 +1,23 @@
-import { useCallback } from 'react'
 import { useLocale } from '../i18n/useLocale'
 import { useActiveSectionIndex } from '../hooks/useActiveSectionIndex'
-
-// Orden real de las secciones tal como se montan en App.tsx.
-const SECTION_IDS = [
-  'top',
-  'evidence',
-  'ecosystem',
-  'products',
-  'method',
-  'founder',
-  'principles',
-  'contact',
-]
+import { SECTION_IDS, getAdjacentSectionIds } from '../navigation/sections'
+import { scrollToSection } from '../navigation/scroll'
 
 export default function SectionNav() {
   const { t } = useLocale()
   const activeIndex = useActiveSectionIndex(SECTION_IDS)
-
-  const isFirst = activeIndex === 0
-  const isLast = activeIndex === SECTION_IDS.length - 1
-
-  const goToIndex = useCallback((index: number) => {
-    const target = document.getElementById(SECTION_IDS[index])
-    if (!target) return
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' })
-  }, [])
+  const activeId = SECTION_IDS[activeIndex]
+  const adjacentSections = getAdjacentSectionIds(activeId)
+  const previousSection = adjacentSections.previous
+  const nextSection = adjacentSections.next
 
   return (
     <div className="section-nav">
-      {!isFirst && (
+      {previousSection && (
         <button
           type="button"
           className="section-nav__btn"
-          onClick={() => goToIndex(activeIndex - 1)}
+          onClick={() => scrollToSection(previousSection, { updateHash: true })}
           aria-label={t.sectionNav.up}
         >
           <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
@@ -49,11 +32,11 @@ export default function SectionNav() {
           </svg>
         </button>
       )}
-      {!isLast && (
+      {nextSection && (
         <button
           type="button"
           className="section-nav__btn"
-          onClick={() => goToIndex(activeIndex + 1)}
+          onClick={() => scrollToSection(nextSection, { updateHash: true })}
           aria-label={t.sectionNav.down}
         >
           <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">

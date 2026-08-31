@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: calc(100svh - 73px);
+  min-height: calc(100svh - var(--sticky-header-height));
   padding-block: var(--space-4);
   overflow: hidden;
 }
@@ -203,7 +203,7 @@
   .hero__grid {
     justify-content: flex-start;
     align-items: flex-start;
-    padding-top: var(--space-4);
+    padding-top: var(--space-2);
   }
 
   .hero__copy {
@@ -243,7 +243,7 @@
 @media (max-width: 767px) {
   .hero__grid {
     align-items: flex-start;
-    padding-top: var(--space-3);
+    padding-top: var(--space-1);
   }
 
   .hero__bg {
@@ -291,7 +291,7 @@
    contenido (padding), así que nunca deja marcas fuera al envolver. */
 @media (max-width: 1099px) {
   .hero__status {
-    margin-top: var(--space-4);
+    margin-top: var(--space-3);
     padding: var(--space-3);
     border-radius: 18px;
     background: linear-gradient(180deg, rgba(10, 31, 61, 0.74), rgba(10, 31, 61, 0.58));
@@ -1026,14 +1026,14 @@
 
 /* Contact */
 #contact {
-  min-height: calc(100svh - 88px);
+  min-height: min(680px, calc(100svh - var(--section-scroll-offset)));
   display: flex;
   align-items: center;
 }
 
 .contact {
   text-align: center;
-  max-width: 60ch;
+  max-width: 64ch;
   margin-inline: auto;
 }
 
@@ -1042,7 +1042,7 @@
 .contact::before {
   content: 'ANCLORA GROUP';
   display: block;
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-2);
   font-family: var(--font-mono);
   font-size: 0.75rem;
   letter-spacing: 0.18em;
@@ -1050,13 +1050,15 @@
 }
 
 .contact h2 {
-  font-size: clamp(2.25rem, 3vw + 1.5rem, 3.25rem);
+  font-size: clamp(2.5rem, 4vw + 1.25rem, 4rem);
+  line-height: 1.05;
   letter-spacing: -0.02em;
 }
 
 .contact p {
   color: var(--harbor-mist);
   margin-inline: auto;
+  margin-top: var(--space-2);
 }
 
 .contact__email {

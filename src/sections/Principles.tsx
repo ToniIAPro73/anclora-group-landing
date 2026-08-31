@@ -7,7 +7,7 @@ export default function Principles() {
   const revealRef = useRevealOnScroll<HTMLDivElement>()
 
   return (
-    <section className="section section--surface">
+    <section id="principles" className="section section--surface">
       <div className="container">
         <SectionHeader title={t.principles.title} />
         <div ref={revealRef} className="principles-list is-reveal-group is-reveal-group--stagger">

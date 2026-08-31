@@ -14,6 +14,10 @@ const en: Dictionary = {
     contact: 'Contact',
     contactCta: 'Contact',
   },
+  sectionNav: {
+    up: 'Go up to the previous section',
+    down: 'Go down to the next section',
+  },
   hero: {
     eyebrow: 'Founder-led technology group',
     title: 'Anclora Group',

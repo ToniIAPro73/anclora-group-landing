@@ -15,6 +15,10 @@ const de: Dictionary = {
     contact: 'Kontakt',
     contactCta: 'Kontakt',
   },
+  sectionNav: {
+    up: 'Zum vorherigen Abschnitt',
+    down: 'Zum nächsten Abschnitt',
+  },
   hero: {
     eyebrow: 'Founder-geführte Technologiegruppe',
     title: 'Anclora Group',

@@ -4,6 +4,7 @@ import { useNavigation } from './context/useNavigation'
 import { CookieConsentProvider } from './components/CookieConsentProvider'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import SectionNav from './components/SectionNav'
 import Hero from './sections/Hero'
 import Evidence from './sections/Evidence'
 import Ecosystem from './sections/Ecosystem'
@@ -44,6 +45,7 @@ function AppRoutes() {
           </>
         )}
       </main>
+      {!legalKey && <SectionNav />}
       <Footer />
     </>
   )

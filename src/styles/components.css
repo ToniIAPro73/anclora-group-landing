@@ -535,3 +535,48 @@
   color: var(--anclora-gold);
   font-size: 0.8125rem;
 }
+
+/* Navegación vertical entre secciones — tamaño, posición, forma y timing
+   replicados de anclora-private-estates-landing (.floating-controls-right /
+   .btn-scroll); solo el color cambia para usar la paleta de Group Landing. */
+.section-nav {
+  position: fixed;
+  bottom: 30px;
+  right: 14px;
+  z-index: 55;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.section-nav__btn {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(108, 99, 255, 0.35);
+  background: rgba(108, 99, 255, 0.12);
+  color: rgba(248, 250, 252, 0.75);
+  backdrop-filter: blur(25px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.section-nav__btn:hover {
+  transform: scale(1.1) translateY(-2px);
+  border-color: var(--command-purple-on-light-text);
+  background: var(--command-purple-on-light-text);
+  color: var(--white-deck);
+  box-shadow: 0 15px 35px rgba(95, 87, 224, 0.35);
+}
+
+@media (max-width: 767px) {
+  .section-nav {
+    right: 14px;
+    bottom: 20px;
+  }
+}

@@ -27,6 +27,10 @@ export interface Dictionary {
     contact: string
     contactCta: string
   }
+  sectionNav: {
+    up: string
+    down: string
+  }
   hero: {
     eyebrow: string
     title: string

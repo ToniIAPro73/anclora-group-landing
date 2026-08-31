@@ -1,4 +1,3 @@
-import { useCallback, useRef } from 'react'
 import { useLocale } from '../i18n/useLocale'
 import { ecosystemLines } from '../data/ecosystem'
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll'
@@ -6,34 +5,9 @@ import { useRevealOnScroll } from '../hooks/useRevealOnScroll'
 export default function Hero() {
   const { t } = useLocale()
   const revealRef = useRevealOnScroll<HTMLDivElement>()
-  const sectionRef = useRef<HTMLElement | null>(null)
-
-  const handlePointerMove = useCallback((event: React.PointerEvent<HTMLElement>) => {
-    const section = sectionRef.current
-    if (!section || event.pointerType === 'touch') return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const rect = section.getBoundingClientRect()
-    const x = ((event.clientX - rect.left) / rect.width) * 2 - 1
-    const y = ((event.clientY - rect.top) / rect.height) * 2 - 1
-    section.style.setProperty('--px', (x * 10).toFixed(2))
-    section.style.setProperty('--py', (y * 10).toFixed(2))
-  }, [])
-
-  const handlePointerLeave = useCallback(() => {
-    const section = sectionRef.current
-    if (!section) return
-    section.style.setProperty('--px', '0')
-    section.style.setProperty('--py', '0')
-  }, [])
 
   return (
-    <section
-      id="top"
-      ref={sectionRef}
-      className="hero"
-      onPointerMove={handlePointerMove}
-      onPointerLeave={handlePointerLeave}
-    >
+    <section id="top" className="hero">
       <div className="hero__bg" aria-hidden="true" />
 
       <div className="container hero__grid">

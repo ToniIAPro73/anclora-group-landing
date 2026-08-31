@@ -6,7 +6,7 @@ export default function Evidence() {
   const revealRef = useRevealOnScroll<HTMLDivElement>()
 
   return (
-    <section className="evidence" aria-labelledby="evidence-title">
+    <section id="evidence" className="evidence" aria-labelledby="evidence-title">
       <div ref={revealRef} className="container evidence__inner is-reveal-group is-reveal-group--stagger">
         <h2 id="evidence-title" className="visually-hidden">
           {t.evidence.title}

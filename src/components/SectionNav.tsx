@@ -1,7 +1,7 @@
 import { useLocale } from '../i18n/useLocale'
 import { useActiveSectionIndex } from '../hooks/useActiveSectionIndex'
 import { SECTION_IDS, getAdjacentSectionIds } from '../navigation/sections'
-import { scrollToSection } from '../navigation/scroll'
+import { navigateToSection } from '../navigation/scroll'
 
 export default function SectionNav() {
   const { t } = useLocale()
@@ -17,7 +17,7 @@ export default function SectionNav() {
         <button
           type="button"
           className="section-nav__btn"
-          onClick={() => scrollToSection(previousSection, { updateHash: true })}
+          onClick={() => navigateToSection(previousSection, { updateHash: true })}
           aria-label={t.sectionNav.up}
         >
           <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
@@ -36,7 +36,7 @@ export default function SectionNav() {
         <button
           type="button"
           className="section-nav__btn"
-          onClick={() => scrollToSection(nextSection, { updateHash: true })}
+          onClick={() => navigateToSection(nextSection, { updateHash: true })}
           aria-label={t.sectionNav.down}
         >
           <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">

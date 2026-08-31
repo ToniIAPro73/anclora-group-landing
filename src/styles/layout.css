@@ -19,11 +19,11 @@
 }
 
 .section {
-  padding-block: var(--space-6);
+  padding-block: var(--space-4) var(--space-6);
 }
 
 .section--tight {
-  padding-block: var(--space-6);
+  padding-block: var(--space-4) var(--space-6);
 }
 
 .section--surface {

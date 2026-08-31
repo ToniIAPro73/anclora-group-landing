@@ -20,7 +20,6 @@
   --space-8: 64px;
   --space-12: 96px;
   --sticky-header-height: 73px;
-  --section-scroll-offset: calc(var(--sticky-header-height) + var(--space-2));
 
   /* Radio */
   --radius-control: 8px;   /* botones, inputs, badges */

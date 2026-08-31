@@ -4,7 +4,7 @@ import { useNavigation } from '../context/useNavigation'
 import LanguageSwitcher from './LanguageSwitcher'
 import lockupHorizontalDark from '../assets/logo/anclora-group-lockup-horizontal-sobre-oscuro-64.webp'
 import { HEADER_SECTIONS, SECTION_IDS, getSectionHref, type HeaderNavKey } from '../navigation/sections'
-import { scrollToSection, sectionIdFromHash, syncHeaderOffset } from '../navigation/scroll'
+import { navigateToSection, sectionIdFromHash, syncHeaderHeight } from '../navigation/scroll'
 import { useActiveSectionIndex } from '../hooks/useActiveSectionIndex'
 
 export default function Header() {
@@ -41,7 +41,7 @@ export default function Header() {
         navigate('/')
       }
 
-      requestAnimationFrame(() => scrollToSection(sectionId, { updateHash: true }))
+      requestAnimationFrame(() => navigateToSection(sectionId, { updateHash: true }))
     },
     [closeMenu, navigate, path],
   )
@@ -55,10 +55,36 @@ export default function Header() {
   }
 
   useEffect(() => {
-    syncHeaderOffset()
-    window.addEventListener('resize', syncHeaderOffset)
-    return () => window.removeEventListener('resize', syncHeaderOffset)
+    const sync = () => syncHeaderHeight()
+    const header = document.querySelector<HTMLElement>('.site-header')
+    const resizeObserver = header && 'ResizeObserver' in window ? new ResizeObserver(sync) : null
+
+    sync()
+    if (header) {
+      resizeObserver?.observe(header)
+    }
+    window.addEventListener('resize', sync)
+
+    return () => {
+      resizeObserver?.disconnect()
+      window.removeEventListener('resize', sync)
+    }
   }, [])
+
+  useEffect(() => {
+    if (path !== '/') return
+
+    const correctHashPosition = () => {
+      const sectionId = sectionIdFromHash(window.location.hash)
+      if (sectionId) {
+        requestAnimationFrame(() => navigateToSection(sectionId))
+      }
+    }
+
+    correctHashPosition()
+    window.addEventListener('popstate', correctHashPosition)
+    return () => window.removeEventListener('popstate', correctHashPosition)
+  }, [path])
 
   useEffect(() => {
     if (!isMenuOpen) return

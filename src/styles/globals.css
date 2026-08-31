@@ -8,7 +8,7 @@
 
 html {
   scroll-behavior: auto;
-  scroll-padding-top: var(--section-scroll-offset);
+  scroll-padding-top: 0;
 }
 
 body {
@@ -30,7 +30,7 @@ body.is-mobile-nav-open {
 }
 
 section[id] {
-  scroll-margin-top: var(--section-scroll-offset);
+  scroll-margin-top: 0;
 }
 
 h1,

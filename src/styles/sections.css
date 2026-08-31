@@ -1026,9 +1026,7 @@
 
 /* Contact */
 #contact {
-  min-height: min(680px, calc(100svh - var(--section-scroll-offset)));
-  display: flex;
-  align-items: center;
+  min-height: calc(100svh - var(--sticky-header-height));
 }
 
 .contact {
@@ -1044,8 +1042,9 @@
   display: block;
   margin-bottom: var(--space-2);
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
+  font-size: clamp(0.9375rem, 0.5vw + 0.75rem, 1.125rem);
+  font-weight: 700;
+  letter-spacing: 0.16em;
   color: var(--signal-blue);
 }
 

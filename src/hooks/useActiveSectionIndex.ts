@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { getHeaderOffset, syncHeaderOffset } from '../navigation/scroll'
+import { syncHeaderHeight } from '../navigation/scroll'
 
 export function useActiveSectionIndex(sectionIds: string[]): number {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -16,8 +16,8 @@ export function useActiveSectionIndex(sectionIds: string[]): number {
 
     const updateActiveSection = () => {
       frame = 0
-      const headerOffset = syncHeaderOffset()
-      const probeY = headerOffset + (window.innerHeight - getHeaderOffset()) * 0.35
+      const headerHeight = syncHeaderHeight()
+      const probeY = headerHeight + (window.innerHeight - headerHeight) * 0.4
       let nextIndex = 0
 
       elements.forEach((element, index) => {

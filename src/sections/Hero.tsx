@@ -1,7 +1,7 @@
 import { useLocale } from '../i18n/useLocale'
 import { ecosystemLines } from '../data/ecosystem'
 import { useRevealOnScroll } from '../hooks/useRevealOnScroll'
-import { scrollToSection } from '../navigation/scroll'
+import { navigateToSection } from '../navigation/scroll'
 
 export default function Hero() {
   const { t } = useLocale()
@@ -24,7 +24,7 @@ export default function Hero() {
               onClick={(event) => {
                 if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
                 event.preventDefault()
-                scrollToSection('ecosystem', { updateHash: true })
+                navigateToSection('ecosystem', { updateHash: true })
               }}
             >
               {t.hero.ctaPrimary}

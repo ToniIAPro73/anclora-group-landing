@@ -23,8 +23,9 @@ describe('SectionNav', () => {
   it('shows only DOWN on hero and sends it to ecosystem', async () => {
     const user = userEvent.setup()
     document.body.innerHTML = '<section id="ecosystem"></section>'
-    const scrollIntoView = vi.fn()
-    ;(document.getElementById('ecosystem') as HTMLElement).scrollIntoView = scrollIntoView
+    const target = document.getElementById('ecosystem') as HTMLElement
+    vi.spyOn(target, 'getBoundingClientRect').mockReturnValue({ top: 420 } as DOMRect)
+    const scrollTo = vi.spyOn(window, 'scrollTo').mockImplementation(() => undefined)
     Object.defineProperty(window, 'matchMedia', {
       configurable: true,
       value: vi.fn().mockReturnValue({ matches: false }),
@@ -35,15 +36,14 @@ describe('SectionNav', () => {
 
     expect(screen.queryByRole('button', { name: /subir/i })).not.toBeInTheDocument()
     await user.click(screen.getByRole('button', { name: /bajar/i }))
-    expect(scrollIntoView).toHaveBeenCalledWith({ block: 'start', behavior: 'smooth' })
+    expect(scrollTo).toHaveBeenCalledWith({ top: 347, behavior: 'smooth' })
     expect(window.history.pushState).toHaveBeenCalledWith({}, '', '#ecosystem')
   })
 
   it('shows UP and DOWN on ecosystem, with UP returning to hero', async () => {
     const user = userEvent.setup()
     document.body.innerHTML = '<section id="top"></section><section id="products"></section>'
-    const scrollIntoView = vi.fn()
-    ;(document.getElementById('top') as HTMLElement).scrollIntoView = scrollIntoView
+    const scrollTo = vi.spyOn(window, 'scrollTo').mockImplementation(() => undefined)
     Object.defineProperty(window, 'matchMedia', {
       configurable: true,
       value: vi.fn().mockReturnValue({ matches: false }),
@@ -54,15 +54,16 @@ describe('SectionNav', () => {
 
     expect(screen.getByRole('button', { name: /bajar/i })).toBeInTheDocument()
     await user.click(screen.getByRole('button', { name: /subir/i }))
-    expect(scrollIntoView).toHaveBeenCalledWith({ block: 'start', behavior: 'smooth' })
+    expect(scrollTo).toHaveBeenCalledWith({ top: 0, behavior: 'smooth' })
     expect(window.history.pushState).toHaveBeenCalledWith({}, '', '#top')
   })
 
   it('shows only UP on contact and sends it to founder', async () => {
     const user = userEvent.setup()
     document.body.innerHTML = '<section id="founder"></section>'
-    const scrollIntoView = vi.fn()
-    ;(document.getElementById('founder') as HTMLElement).scrollIntoView = scrollIntoView
+    const target = document.getElementById('founder') as HTMLElement
+    vi.spyOn(target, 'getBoundingClientRect').mockReturnValue({ top: 420 } as DOMRect)
+    const scrollTo = vi.spyOn(window, 'scrollTo').mockImplementation(() => undefined)
     Object.defineProperty(window, 'matchMedia', {
       configurable: true,
       value: vi.fn().mockReturnValue({ matches: false }),
@@ -73,8 +74,7 @@ describe('SectionNav', () => {
 
     expect(screen.queryByRole('button', { name: /bajar/i })).not.toBeInTheDocument()
     await user.click(screen.getByRole('button', { name: /subir/i }))
-    expect(scrollIntoView).toHaveBeenCalledWith({ block: 'start', behavior: 'smooth' })
+    expect(scrollTo).toHaveBeenCalledWith({ top: 347, behavior: 'smooth' })
     expect(window.history.pushState).toHaveBeenCalledWith({}, '', '#founder')
   })
 })
-

@@ -1,32 +1,34 @@
 import { SECTION_IDS, type SectionId } from './sections'
 
-const HEADER_OFFSET_FALLBACK = 88
-const HEADER_OFFSET_BREATHING_ROOM = 16
+const HEADER_HEIGHT_FALLBACK = 73
 
 function prefersReducedMotion(): boolean {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches
 }
 
-export function getHeaderOffset(): number {
+export function getHeaderHeight(): number {
   const header = document.querySelector<HTMLElement>('.site-header')
-  if (!header) return HEADER_OFFSET_FALLBACK
+  if (!header) return HEADER_HEIGHT_FALLBACK
 
-  return Math.ceil(header.getBoundingClientRect().height + HEADER_OFFSET_BREATHING_ROOM)
+  const measuredHeight = Math.ceil(header.getBoundingClientRect().height)
+  return measuredHeight > 0 ? measuredHeight : HEADER_HEIGHT_FALLBACK
 }
 
-export function syncHeaderOffset(): number {
-  const offset = getHeaderOffset()
-  document.documentElement.style.setProperty('--section-scroll-offset', `${offset}px`)
-  return offset
+export function syncHeaderHeight(): number {
+  const height = getHeaderHeight()
+  document.documentElement.style.setProperty('--sticky-header-height', `${height}px`)
+  return height
 }
 
-export function scrollToSection(id: SectionId, options: { updateHash?: boolean } = {}): void {
+export function navigateToSection(id: SectionId, options: { updateHash?: boolean } = {}): void {
   const target = document.getElementById(id)
   if (!target) return
 
-  syncHeaderOffset()
-  target.scrollIntoView({
-    block: 'start',
+  const headerHeight = syncHeaderHeight()
+  const targetY = id === 'top' ? 0 : window.scrollY + target.getBoundingClientRect().top - headerHeight
+
+  window.scrollTo({
+    top: Math.max(0, Math.round(targetY)),
     behavior: prefersReducedMotion() ? 'auto' : 'smooth',
   })
 
@@ -39,4 +41,3 @@ export function sectionIdFromHash(hash: string): SectionId | null {
   const id = hash.replace(/^#/, '')
   return SECTION_IDS.includes(id as SectionId) ? (id as SectionId) : null
 }
-

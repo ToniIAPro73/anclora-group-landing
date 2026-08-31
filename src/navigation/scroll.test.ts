@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { scrollToSection, sectionIdFromHash } from './scroll'
+import { navigateToSection, sectionIdFromHash } from './scroll'
 
-describe('scrollToSection', () => {
+describe('navigateToSection', () => {
   beforeEach(() => {
     document.body.innerHTML = '<header class="site-header"></header><section id="ecosystem"></section>'
     Object.defineProperty(window, 'matchMedia', {
@@ -13,24 +13,24 @@ describe('scrollToSection', () => {
 
   it('scrolls with the shared helper and updates hash', () => {
     const target = document.getElementById('ecosystem') as HTMLElement
-    const scrollIntoView = vi.fn()
-    target.scrollIntoView = scrollIntoView
+    vi.spyOn(target, 'getBoundingClientRect').mockReturnValue({ top: 420 } as DOMRect)
+    const scrollTo = vi.spyOn(window, 'scrollTo').mockImplementation(() => undefined)
 
-    scrollToSection('ecosystem', { updateHash: true })
+    navigateToSection('ecosystem', { updateHash: true })
 
-    expect(scrollIntoView).toHaveBeenCalledWith({ block: 'start', behavior: 'smooth' })
+    expect(scrollTo).toHaveBeenCalledWith({ top: 347, behavior: 'smooth' })
     expect(window.history.pushState).toHaveBeenCalledWith({}, '', '#ecosystem')
   })
 
   it('respects reduced motion', () => {
     vi.mocked(window.matchMedia).mockReturnValue({ matches: true } as MediaQueryList)
     const target = document.getElementById('ecosystem') as HTMLElement
-    const scrollIntoView = vi.fn()
-    target.scrollIntoView = scrollIntoView
+    vi.spyOn(target, 'getBoundingClientRect').mockReturnValue({ top: 420 } as DOMRect)
+    const scrollTo = vi.spyOn(window, 'scrollTo').mockImplementation(() => undefined)
 
-    scrollToSection('ecosystem')
+    navigateToSection('ecosystem')
 
-    expect(scrollIntoView).toHaveBeenCalledWith({ block: 'start', behavior: 'auto' })
+    expect(scrollTo).toHaveBeenCalledWith({ top: 347, behavior: 'auto' })
   })
 })
 
@@ -40,4 +40,3 @@ describe('sectionIdFromHash', () => {
     expect(sectionIdFromHash('#evidence')).toBeNull()
   })
 })
-

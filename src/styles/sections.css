@@ -426,6 +426,20 @@
   padding-block: var(--space-4);
 }
 
+@media (max-width: 1099px) {
+  .evidence__inner {
+    padding-top: 0;
+  }
+
+  .evidence__inner.is-reveal-group--stagger > * {
+    transform: none;
+  }
+
+  .evidence-metric:first-child {
+    padding-top: 0;
+  }
+}
+
 .evidence-metric {
   padding-block: var(--space-2);
   border-top: 1px solid rgba(229, 231, 235, 0.1);

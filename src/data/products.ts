@@ -28,7 +28,7 @@ export const products: Product[] = [
     status: 'ecosistema interno',
   },
   {
-    id: 'anclora-syncxml',
+    id: 'anclora-guesthub',
     name: 'Anclora GuestHub',
     lineId: 'real-estate-intelligence',
     description: 'Gestión de huéspedes, check-in y operación de alquiler vacacional.',

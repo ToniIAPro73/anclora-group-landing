@@ -272,9 +272,9 @@ La solución definitiva para todos los negocios.
 | Línea | Función | Productos |
 |---|---|---|
 | Fiscal & Compliance | Fiscalidad, facturación, cumplimiento | Anclora Fiscal |
-| Operational Automation | Automatización documental y operativa | SyncXML, Nexus, Command Center |
+| Operational Automation | Automatización documental y operativa | Nexus, Command Center |
 | Energy & Efficiency | Eficiencia energética y análisis | EnergyScan |
-| Real Estate Intelligence | Inteligencia inmobiliaria y activos premium | Private Estates, Synergi, Data LAB |
+| Real Estate Intelligence | Inteligencia inmobiliaria y activos premium | GuestHub, Private Estates, Synergi, Data LAB |
 | Publishing & Digital Knowledge | Contenido, conocimiento, editorial | Anclora Insights |
 
 ### Jerarquía pública
@@ -284,7 +284,7 @@ La solución definitiva para todos los negocios.
 | Producto | Descripción breve |
 |---|---|
 | **Anclora Fiscal** | Fiscalidad, facturación y cumplimiento para operaciones digitales. |
-| **Anclora SyncXML** | Automatización documental para hospedajes y generación XML oficial. |
+| **Anclora GuestHub** | Gestión de huéspedes, check-in y operación de alquiler vacacional. |
 | **Anclora EnergyScan** | Informes digitales para analizar ahorro y eficiencia energética. |
 | **Anclora Private Estates** | Línea inmobiliaria premium centrada en Mallorca y activos selectos. |
 | **Anclora Insights** | Sello editorial y productos digitales de conocimiento aplicado. |

@@ -196,11 +196,96 @@
   }
 }
 
-@media (max-width: 899px) {
+/* Tablet (768–1099px) — el anillo pasa a ser elemento secundario: se
+   desplaza a la derecha y se recorta de forma deliberada para que el
+   contenido gane prioridad, sin llegar a la composición desktop completa. */
+@media (min-width: 768px) and (max-width: 1099px) {
+  .hero__bg {
+    background-position: 78% 42%;
+    background-size: 165%;
+  }
+
+  .hero__grid {
+    justify-content: flex-start;
+  }
+
+  .hero__copy {
+    margin-inline: 0;
+    max-width: 480px;
+    text-align: left;
+  }
+
+  .hero__copy::before {
+    inset: -10% -16% -10% -22%;
+    background: linear-gradient(100deg, rgba(10, 31, 61, 0.88) 52%, rgba(10, 31, 61, 0.32) 84%, transparent 98%);
+  }
+
+  .hero__tagline,
+  .hero__subtitle {
+    margin-inline: 0;
+  }
+
+  .hero__actions {
+    justify-content: flex-start;
+  }
+
+  .hero__status-caption {
+    margin-inline: 0;
+    text-align: left;
+  }
+
+  .hero__status-list {
+    justify-content: flex-start;
+  }
+}
+
+/* Mobile (<= 767px) — el contenido domina la composición; el anillo queda
+   como pieza atmosférica parcial desplazada a la derecha/abajo, fuera del
+   eje de lectura. No se persigue mostrar las 5 marcas: ya están explicadas
+   en el bloque inferior. */
+@media (max-width: 767px) {
+  .hero__bg {
+    background-position: 84% 82%;
+    background-size: 155%;
+  }
+
+  .hero__copy {
+    max-width: 420px;
+  }
+
+  .hero__copy::before {
+    inset: -14% -12%;
+    background: radial-gradient(65% 62% at 50% 40%, rgba(10, 31, 61, 0.84), rgba(10, 31, 61, 0.5) 68%, transparent 92%);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.25rem, 7vw + 0.5rem, 2.75rem);
+  }
+
+  .hero__status {
+    z-index: 1;
+  }
+
+  .hero__status::after {
+    content: '';
+    position: absolute;
+    inset: -8% -12% -20%;
+    z-index: -1;
+    background: radial-gradient(80% 90% at 50% 30%, rgba(10, 31, 61, 0.6), transparent 82%);
+  }
+}
+
+/* Definición de texto sobre fondo con artwork: velo tipográfico muy sutil,
+   solo por debajo de desktop, para que el contenido se lea nítido incluso
+   cuando el anillo o zonas metálicas brillantes quedan cerca del copy. */
+@media (max-width: 1099px) {
+  .hero__eyebrow,
+  .hero h1,
   .hero__tagline,
   .hero__subtitle,
-  .hero__status-caption {
-    margin-inline: auto;
+  .hero__status-caption,
+  .hero__status-list {
+    text-shadow: 0 2px 10px rgba(4, 12, 26, 0.55);
   }
 }
 

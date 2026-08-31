@@ -29,9 +29,9 @@ export const products: Product[] = [
   },
   {
     id: 'anclora-syncxml',
-    name: 'Anclora SyncXML',
-    lineId: 'operational-automation',
-    description: 'Automatización documental para hospedajes y generación XML oficial.',
+    name: 'Anclora GuestHub',
+    lineId: 'real-estate-intelligence',
+    description: 'Gestión de huéspedes, check-in y operación de alquiler vacacional.',
     tier: 1,
     status: 'ecosistema interno',
   },

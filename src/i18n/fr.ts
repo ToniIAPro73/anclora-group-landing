@@ -54,7 +54,7 @@ const fr: Dictionary = {
     ctaView: 'Voir le produit',
     items: {
       'anclora-fiscal': { description: 'Fiscalité, facturation et conformité pour les opérations numériques.', status: 'écosystème interne' },
-      'anclora-syncxml': { description: "Automatisation documentaire pour l'hébergement et génération de XML officiel.", status: 'écosystème interne' },
+      'anclora-syncxml': { description: 'Gestion des voyageurs, check-in et opérations de location saisonnière.', status: 'écosystème interne' },
       'anclora-energyscan': { description: "Rapports numériques pour analyser les économies et l'efficacité énergétique.", status: 'écosystème interne' },
       'anclora-private-estates': { description: 'Ligne immobilière premium centrée sur Majorque et des actifs sélectionnés.', status: 'écosystème interne' },
       'anclora-insights': { description: 'Label éditorial et produits numériques de connaissance appliquée.', status: 'écosystème interne' },

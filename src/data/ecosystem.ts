@@ -19,7 +19,7 @@ export const ecosystemLines: EcosystemLine[] = [
     id: 'operational-automation',
     name: 'Operational Automation',
     description: 'Automatización documental y operativa',
-    products: ['Anclora SyncXML', 'Anclora Nexus', 'Anclora Command Center'],
+    products: ['Anclora Nexus', 'Anclora Command Center'],
   },
   {
     id: 'energy-efficiency',
@@ -31,7 +31,7 @@ export const ecosystemLines: EcosystemLine[] = [
     id: 'real-estate-intelligence',
     name: 'Real Estate Intelligence',
     description: 'Inteligencia inmobiliaria y activos premium',
-    products: ['Anclora Private Estates', 'Anclora Synergi', 'Anclora Data LAB'],
+    products: ['Anclora Private Estates', 'Anclora Synergi', 'Anclora Data LAB', 'Anclora GuestHub'],
   },
   {
     id: 'publishing-digital-knowledge',

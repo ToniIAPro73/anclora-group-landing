@@ -54,7 +54,7 @@ const it: Dictionary = {
     ctaView: 'Vedi il prodotto',
     items: {
       'anclora-fiscal': { description: 'Fiscalità, fatturazione e conformità per le operazioni digitali.', status: 'ecosistema interno' },
-      'anclora-syncxml': { description: 'Automazione documentale per strutture ricettive e generazione XML ufficiale.', status: 'ecosistema interno' },
+      'anclora-syncxml': { description: 'Gestione degli ospiti, check-in e operazioni di affitto turistico.', status: 'ecosistema interno' },
       'anclora-energyscan': { description: 'Report digitali per analizzare risparmio ed efficienza energetica.', status: 'ecosistema interno' },
       'anclora-private-estates': { description: 'Linea immobiliare premium incentrata su Maiorca e asset selezionati.', status: 'ecosistema interno' },
       'anclora-insights': { description: 'Marchio editoriale e prodotti digitali di conoscenza applicata.', status: 'ecosistema interno' },

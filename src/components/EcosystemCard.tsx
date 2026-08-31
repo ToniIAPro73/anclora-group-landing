@@ -21,7 +21,9 @@ export default function EcosystemCard({ line, index = 0 }: EcosystemCardProps) {
       </div>
       <div className="ecosystem-rail__products">
         {line.products.map((product) => (
-          <span key={product}>{product}</span>
+          <span key={product} className="ecosystem-rail__module">
+            {product}
+          </span>
         ))}
       </div>
     </article>

@@ -506,67 +506,129 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  gap: 2px;
+  isolation: isolate;
+  padding-block: var(--space-2);
 }
 
-/* Línea de transmisión vertical que conecta los nodos (desktop) */
-@media (min-width: 900px) {
-  .ecosystem-rail-list::before {
-    content: '';
-    position: absolute;
-    top: var(--space-4);
-    bottom: var(--space-4);
-    left: 27px;
-    width: 1px;
-    background: linear-gradient(180deg, transparent, rgba(95, 168, 255, 0.22) 12%, rgba(95, 168, 255, 0.22) 88%, transparent);
-  }
+.ecosystem-rail-list::before,
+.ecosystem-rail-list::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.ecosystem-rail-list::before {
+  top: var(--space-3);
+  bottom: var(--space-3);
+  left: 18px;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(95, 168, 255, 0.36) 10%, rgba(197, 160, 89, 0.38) 50%, rgba(95, 168, 255, 0.28) 90%, transparent);
+}
+
+.ecosystem-rail-list::after {
+  inset: -18px -12px;
+  background:
+    linear-gradient(rgba(95, 168, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(95, 168, 255, 0.035) 1px, transparent 1px),
+    radial-gradient(42% 60% at 4% 28%, rgba(95, 168, 255, 0.09), transparent 68%),
+    radial-gradient(44% 70% at 100% 72%, rgba(197, 160, 89, 0.08), transparent 72%);
+  background-size: 48px 48px, 48px 48px, auto, auto;
+  mask-image: linear-gradient(90deg, black, rgba(0, 0, 0, 0.72) 68%, transparent);
 }
 
 .ecosystem-rail {
+  position: relative;
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: var(--space-1) var(--space-3);
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: var(--space-2) var(--space-3);
   padding-block: var(--space-3);
-  border-top: var(--border-subtle);
-  transition: border-color var(--dur-base) var(--ease-out);
+  transition: transform var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out);
 }
 
-.ecosystem-rail-list > *:last-child {
-  border-bottom: var(--border-subtle);
+.ecosystem-rail::before {
+  content: '';
+  position: absolute;
+  inset: 6px 0;
+  border-radius: var(--radius-card);
+  background: linear-gradient(90deg, rgba(95, 168, 255, 0.055), rgba(229, 231, 235, 0.018) 42%, transparent 82%);
+  opacity: 0;
+  transform: scaleX(0.985);
+  transform-origin: left;
+  transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
 }
 
 .ecosystem-rail:hover {
-  border-top-color: rgba(95, 168, 255, 0.35);
+  transform: translateX(2px);
+}
+
+.ecosystem-rail:hover::before {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 .ecosystem-rail__node {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: start center;
   padding-top: 2px;
 }
 
-/* Contacto del nodo: punto plateado que se enciende en signal-blue al hover */
-.ecosystem-rail__node::before {
+.ecosystem-rail__node::before,
+.ecosystem-rail__node::after {
   content: '';
-  flex-shrink: 0;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: rgba(229, 231, 235, 0.45);
-  transition: background var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+  position: absolute;
+  border-radius: 999px;
+}
+
+.ecosystem-rail__node::before {
+  top: 2px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(197, 160, 89, 0.42);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(95, 168, 255, 0.2), transparent 42%),
+    rgba(10, 31, 61, 0.9);
+  box-shadow: inset 0 0 0 1px rgba(229, 231, 235, 0.06), 0 0 26px -16px rgba(95, 168, 255, 0.8);
+  transition: border-color var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out);
+}
+
+.ecosystem-rail__node::after {
+  top: 17px;
+  right: -18px;
+  width: 16px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(197, 160, 89, 0.65), transparent);
 }
 
 .ecosystem-rail:hover .ecosystem-rail__node::before {
-  background: var(--signal-blue);
-  box-shadow: var(--glow-signal);
+  border-color: rgba(95, 168, 255, 0.78);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(95, 168, 255, 0.34), transparent 44%),
+    rgba(10, 31, 61, 0.96);
+  box-shadow: var(--glow-signal), inset 0 0 0 1px rgba(229, 231, 235, 0.09);
 }
 
 .ecosystem-rail__index {
-  color: var(--signal-blue);
+  position: relative;
+  z-index: 1;
+  padding-top: 9px;
+  color: var(--anclora-gold);
+  font-size: 0.8125rem;
+  line-height: 1;
+}
+
+.ecosystem-rail__body {
+  position: relative;
+  z-index: 1;
 }
 
 .ecosystem-rail__body h3 {
   color: var(--white-deck);
+  font-size: clamp(1.125rem, 0.65vw + 0.95rem, 1.5rem);
+  line-height: 1.18;
   transition: color var(--dur-base) var(--ease-out);
 }
 
@@ -575,52 +637,133 @@
 }
 
 .ecosystem-rail__body p {
+  max-width: 56ch;
   color: var(--harbor-mist);
-  margin-top: 2px;
+  margin-top: 6px;
 }
 
 .ecosystem-rail__products {
+  position: relative;
+  z-index: 1;
   grid-column: 2;
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-1);
+  align-content: flex-start;
+  padding-top: 15px;
 }
 
-.ecosystem-rail__products span {
+.ecosystem-rail__products::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  width: 120px;
+  max-width: 120px;
+  background: linear-gradient(90deg, rgba(197, 160, 89, 0.46), transparent);
+}
+
+.ecosystem-rail__module {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
   font-family: var(--font-mono);
   font-size: 0.75rem;
   letter-spacing: 0.02em;
   color: var(--harbor-mist);
-  border: var(--border-subtle);
+  border: 1px solid rgba(229, 231, 235, 0.14);
   border-radius: var(--radius-control);
-  padding: 4px 10px;
-  transition: color var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+  padding: 6px 12px;
+  background: linear-gradient(180deg, rgba(229, 231, 235, 0.045), rgba(10, 31, 61, 0.22));
+  box-shadow: inset 0 1px 0 rgba(229, 231, 235, 0.04);
+  transition: color var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
 }
 
-.ecosystem-rail:hover .ecosystem-rail__products span {
+.ecosystem-rail__module::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: rgba(197, 160, 89, 0.72);
+  box-shadow: 0 0 14px -6px rgba(197, 160, 89, 0.9);
+}
+
+.ecosystem-rail:hover .ecosystem-rail__module {
   color: var(--white-deck);
-  border-color: rgba(95, 168, 255, 0.3);
+  border-color: rgba(95, 168, 255, 0.34);
+  background: linear-gradient(180deg, rgba(95, 168, 255, 0.09), rgba(10, 31, 61, 0.28));
+}
+
+.ecosystem-rail__module:hover {
+  transform: translateY(-1px);
+  border-color: rgba(197, 160, 89, 0.5);
 }
 
 @media (min-width: 900px) {
-  .ecosystem-rail {
-    grid-template-columns: 56px minmax(0, 1fr) minmax(0, 1fr);
-    align-items: start;
-    gap: var(--space-4);
-  }
-  .ecosystem-rail__products {
-    grid-column: 3;
-    justify-content: flex-end;
+  .ecosystem-rail-list {
+    padding-block: var(--space-3);
   }
 
-  /* V2 — desfase alterno: cada línea entra ligeramente desplazada, sistema
-     de contactos escalonados en vez de una fila plana repetida. */
-  .ecosystem-rail:nth-child(even) {
-    padding-left: var(--space-4);
+  .ecosystem-rail-list::before {
+    left: 41px;
+  }
+
+  .ecosystem-rail {
+    grid-template-columns: 82px minmax(280px, 0.9fr) minmax(300px, 1.1fr);
+    align-items: start;
+    gap: var(--space-4);
+    padding-block: var(--space-4);
+  }
+
+  .ecosystem-rail__node::before {
+    width: 44px;
+    height: 44px;
+  }
+
+  .ecosystem-rail__node::after {
+    top: 22px;
+    right: -28px;
+    width: 28px;
   }
 
   .ecosystem-rail__index {
+    padding-top: 12px;
     font-size: 0.9375rem;
+  }
+
+  .ecosystem-rail__products {
+    grid-column: 3;
+    justify-content: flex-start;
+    padding-top: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .ecosystem-rail-list::after {
+    inset-inline: -4px;
+    mask-image: linear-gradient(90deg, black, rgba(0, 0, 0, 0.65));
+  }
+
+  .ecosystem-rail {
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: var(--space-2);
+  }
+
+  .ecosystem-rail::before {
+    inset-inline: -6px;
+  }
+
+  .ecosystem-rail__products {
+    gap: 6px;
+  }
+
+  .ecosystem-rail__module {
+    min-height: 30px;
+    padding: 5px 9px;
+    font-size: 0.6875rem;
   }
 }
 

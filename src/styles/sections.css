@@ -1,8 +1,3 @@
-/* Hero "portal" — el SystemRing es el campo gravitatorio: centrado y
-   sobredimensionado, con el titular flotando en el vacío interior del anillo.
-   El puntero deriva las capas unos píxeles (--px/--py, máx. 10px) con una
-   transición que actúa de inercia; el sonar pulsa desde el centro (SonarField).
-   Un solo momento de movimiento cuidado (brand book, sección 8). */
 .hero {
   --px: 0;
   --py: 0;
@@ -14,88 +9,14 @@
   overflow: hidden;
 }
 
-/* Retícula náutica: líneas finas plateadas, variación máx. 8% (sección 8 del
-   brand book). Doble atmósfera: signal-blue arriba, command-purple abajo a la
-   izquierda — profundidad de cabina sin salir de la paleta. */
-.hero__field {
+.hero__bg {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-image:
-    linear-gradient(rgba(229, 231, 235, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(229, 231, 235, 0.05) 1px, transparent 1px),
-    var(--ambient-glow-blue),
-    radial-gradient(45% 42% at 16% 88%, rgba(108, 99, 255, 0.09), transparent 72%);
-  background-size: 56px 56px, 56px 56px, 100% 100%, 100% 100%;
-  mask-image: radial-gradient(80% 70% at 50% 45%, black 40%, transparent 92%);
-}
-
-.hero__sonar {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.hero__ring-layer {
-  position: absolute;
-  top: 46%;
-  left: 50%;
-  /* El anillo domina el hero pero cabe entero: diámetro acotado por la altura
-     visible (80svh deja aire para la franja de estado), con tope de 1000px */
-  width: min(80svh, 1000px);
-  aspect-ratio: 1;
-  pointer-events: none;
-  opacity: 0.75;
-  transform: translate(calc(-50% + var(--px) * 1px), calc(-50% + var(--py) * 1px));
-  transition: transform 620ms var(--ease-out);
-}
-
-/* Los números del anillo se encienden en dorado cuando el frente de un pulso
-   de sonar cruza su círculo (lo marca SonarField con .hero--labels-lit) */
-.hero__ring-layer text {
-  transition:
-    fill 260ms var(--ease-out),
-    filter 260ms var(--ease-out),
-    transform 260ms var(--ease-out);
-  transform-box: fill-box;
-  transform-origin: center;
-}
-
-.hero--labels-lit .hero__ring-layer text {
-  fill: var(--anclora-gold);
-  filter: drop-shadow(0 0 9px rgba(197, 160, 89, 0.8));
-  transform: translateY(-2px) scale(1.16);
-}
-
-.hero__ring-layer svg {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Las tres ondas de la medalla respiran juntas: un único grupo, una única
-   animación — nunca desfasadas entre sí. Sutil, elegante, no decorativa. */
-.systemring-waves {
-  transform-box: fill-box;
-  transform-origin: center;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .systemring-waves {
-    animation: systemring-wave-breathe 5200ms var(--ease-out) infinite;
-  }
-}
-
-@keyframes systemring-wave-breathe {
-  0%,
-  100% {
-    transform: translateY(0) scaleY(1);
-  }
-  50% {
-    transform: translateY(-2px) scaleY(1.05);
-  }
+  background-image: url('/background-hero.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .hero__grid {
@@ -125,19 +46,10 @@
   background: radial-gradient(50% 50% at 50% 50%, rgba(10, 31, 61, 0.72), transparent 75%);
 }
 
-@media (max-width: 899px) {
-  .hero__ring-layer {
-    top: 42%;
-    width: 150vmin;
-    opacity: 0.42;
-    mask-image: radial-gradient(65% 65% at 50% 50%, black 55%, transparent 94%);
-  }
-}
 
 /* Entrada escalonada: el único momento de movimiento cuidado del hero se
    reparte en los hijos de .hero__copy en vez de mover el bloque entero de
-   golpe (sección 8: fade-in suave, sin parallax agresivo). El anillo tiene
-   su propio barrido (SystemRing), coreografiado por separado. */
+   golpe (sección 8: fade-in suave, sin parallax agresivo). */
 .hero__copy.is-reveal-group {
   opacity: 1;
   transform: translate(calc(var(--px) * -0.35px), calc(var(--py) * -0.35px));
@@ -279,9 +191,6 @@
   .hero h1 {
     font-size: clamp(2.25rem, 3.5vw + 1rem, 3.75rem);
   }
-  .hero__ring-layer {
-    width: min(74svh, 1000px);
-  }
   .hero__status {
     margin-top: var(--space-3);
   }
@@ -302,18 +211,6 @@
 @media (min-width: 1100px) {
   .hero__grid {
     justify-content: flex-start;
-  }
-
-  /* Anillo más contenido que en la V2: un poco más pequeño y con menos
-     sangrado hacia el borde para que los cinco números exteriores (01–05)
-     queden siempre dentro del viewport, sin recortarse. */
-  .hero__ring-layer {
-    top: 50%;
-    left: auto;
-    right: 0%;
-    width: min(60svh, 720px);
-    opacity: 0.6;
-    transform: translate(calc(var(--px) * 1px), calc(-50% + var(--py) * 1px));
   }
 
   .hero__copy {
@@ -367,10 +264,6 @@
   }
   .hero__subtitle {
     display: none;
-  }
-  .hero__ring-layer {
-    width: min(58svh, 620px);
-    opacity: 0.3;
   }
   .hero__status {
     margin-top: var(--space-2);

@@ -54,7 +54,7 @@ const ca: Dictionary = {
     ctaView: 'Veure producte',
     items: {
       'anclora-fiscal': { description: 'Fiscalitat, facturació i compliment per a operacions digitals.', status: 'ecosistema intern' },
-      'anclora-syncxml': { description: "Gestió d'hostes, check-in i operació de lloguer vacacional.", status: 'ecosistema intern' },
+      'anclora-guesthub': { description: "Gestió d'hostes, check-in i operació de lloguer vacacional.", status: 'ecosistema intern' },
       'anclora-energyscan': { description: "Informes digitals per analitzar l'estalvi i l'eficiència energètica.", status: 'ecosistema intern' },
       'anclora-private-estates': { description: 'Línia immobiliària premium centrada a Mallorca i actius selectes.', status: 'ecosistema intern' },
       'anclora-insights': { description: 'Segell editorial i productes digitals de coneixement aplicat.', status: 'ecosistema intern' },

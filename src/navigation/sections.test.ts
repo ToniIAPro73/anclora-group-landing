@@ -9,6 +9,7 @@ describe('section navigation registry', () => {
       'products',
       'method',
       'founder',
+      'principles',
       'contact',
     ])
   })
@@ -36,6 +37,7 @@ describe('section navigation registry', () => {
       '#products',
       '#method',
       '#founder',
+      '#principles',
       '#contact',
     ])
   })

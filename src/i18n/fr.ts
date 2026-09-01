@@ -12,6 +12,7 @@ const fr: Dictionary = {
     products: 'Produits',
     method: 'Méthode',
     founder: 'Fondateur',
+    principles: 'Principes',
     contact: 'Contact',
     contactCta: 'Contacter',
   },

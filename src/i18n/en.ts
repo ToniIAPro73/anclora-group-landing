@@ -11,6 +11,7 @@ const en: Dictionary = {
     products: 'Products',
     method: 'Method',
     founder: 'Founder',
+    principles: 'Principles',
     contact: 'Contact',
     contactCta: 'Contact',
   },

@@ -4,7 +4,7 @@ export const SECTION_REGISTRY = [
   { id: 'products', navKey: 'products' },
   { id: 'method', navKey: 'method' },
   { id: 'founder', navKey: 'founder' },
-  { id: 'principles', navKey: null },
+  { id: 'principles', navKey: 'principles' },
   { id: 'contact', navKey: 'contact' },
 ] as const
 

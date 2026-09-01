@@ -12,6 +12,7 @@ const ca: Dictionary = {
     products: 'Productes',
     method: 'Mètode',
     founder: 'Fundador',
+    principles: 'Principis',
     contact: 'Contacte',
     contactCta: 'Contactar',
   },

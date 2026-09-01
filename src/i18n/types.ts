@@ -24,6 +24,7 @@ export interface Dictionary {
     products: string
     method: string
     founder: string
+    principles: string
     contact: string
     contactCta: string
   }

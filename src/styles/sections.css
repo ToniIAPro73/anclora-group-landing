@@ -966,18 +966,20 @@
 .method-canvas__meta-dot { margin-inline: 7px; color: var(--anclora-gold); }
 
 /* Overlay phase text — desktop: absolutely positioned inside the art box, each
-   block anchored just under its matching numeral/icon (percentages measured
-   against the source artwork, stable at any viewport since the box keeps the
-   artwork's exact aspect ratio). No numerals repeated — the artwork already
-   shows 01–04; screen readers still get them via the visually-hidden prefix. */
+   block centered directly under its matching numeral/icon. Coordinates are the
+   numeral's own pixel centroid measured from the source artwork (not eyeballed),
+   converted to percentages of the 1672x941 art box, so they stay exact at any
+   viewport since the box keeps the artwork's aspect ratio. No numerals repeated
+   in HTML — the artwork already shows 01–04; screen readers get them via the
+   visually-hidden prefix. */
 .method-phases { z-index: 1; list-style: none; margin: 0; padding: 0; pointer-events: none; }
-.method-phase { position: absolute; }
-.method-phase:nth-child(1) { left: 14%; top: 88.5%; width: 21%; }
-.method-phase:nth-child(2) { left: 35%; top: 81%; width: 21%; }
-.method-phase:nth-child(3) { left: 55%; top: 73.5%; width: 21%; }
-.method-phase:nth-child(4) { left: 74%; top: 61.5%; width: 24%; }
-.method-phase h3 { margin: 0; color: var(--white-deck); font-size: clamp(0.85rem, 1vw, 0.98rem); line-height: 1.2; }
-.method-phase p { margin: 4px 0 0; color: var(--harbor-mist); font-size: clamp(0.72rem, 0.85vw, 0.8rem); line-height: 1.35; }
+.method-phase { position: absolute; width: 23ch; max-width: 30vw; text-align: center; transform: translateX(-50%); }
+.method-phase:nth-child(1) { left: 15.8%; top: 88.4%; }
+.method-phase:nth-child(2) { left: 38.4%; top: 80.9%; }
+.method-phase:nth-child(3) { left: 58.7%; top: 73.6%; }
+.method-phase:nth-child(4) { left: 78.7%; top: 60.7%; }
+.method-phase h3 { margin: 0; color: var(--white-deck); font-size: clamp(1rem, 1.15vw, 1.15rem); font-weight: 600; line-height: 1.2; }
+.method-phase p { margin: 5px 0 0; color: var(--harbor-mist); font-size: clamp(0.82rem, 0.95vw, 0.92rem); line-height: 1.4; }
 
 @media (max-width: 899px) {
   .method-canvas { min-height: calc(100dvh - var(--sticky-header-height)); flex-direction: column; }
@@ -1014,7 +1016,12 @@
     left: auto;
     top: auto;
     width: auto;
+    max-width: none;
+    text-align: left;
+    transform: none;
   }
+  .method-phase h3 { font-size: 1.05rem; }
+  .method-phase p { font-size: 0.88rem; }
 }
 
 @media (max-width: 600px) {

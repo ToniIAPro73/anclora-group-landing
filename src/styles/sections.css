@@ -981,7 +981,7 @@
   /* One shared vertical rhythm for every phase block, expressed in vw scaled
      to the art box's own aspect ratio (941/1672) so the numeral-to-title gap
      stays visually identical at any viewport width — never a per-item value. */
-  --phase-gap: 1.55vw;
+  --phase-gap: 0.55vw;
 }
 .method-phase {
   position: absolute;
@@ -992,19 +992,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: var(--phase-gap);
 }
 .method-phase:nth-child(1) { left: 15.8%; top: 88.4%; }
 .method-phase:nth-child(2) { left: 38.4%; top: 80.9%; }
 .method-phase:nth-child(3) { left: 58.7%; top: 73.6%; }
 .method-phase:nth-child(4) { left: 78.7%; top: 60.7%; }
-.method-phase__dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--anclora-gold);
-  margin-bottom: var(--phase-gap);
-}
-.method-phase__body { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.method-phase__body { display: flex; flex-direction: column; align-items: center; gap: 4px; }
 .method-phase h3 { margin: 0; color: var(--white-deck); font-size: clamp(1rem, 1.15vw, 1.15rem); font-weight: 600; line-height: 1.25; }
 .method-phase p { margin: 0; color: var(--harbor-mist); font-size: clamp(0.82rem, 0.95vw, 0.92rem); line-height: 1.4; }
 
@@ -1047,8 +1041,8 @@
     text-align: left;
     align-items: flex-start;
     transform: none;
+    padding-top: 0;
   }
-  .method-phase__dot { margin-bottom: 10px; }
   .method-phase__body { align-items: flex-start; }
   .method-phase h3 { font-size: 1.05rem; }
   .method-phase p { font-size: 0.88rem; }

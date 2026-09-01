@@ -7,10 +7,10 @@ export default function Principles() {
   const revealRef = useRevealOnScroll<HTMLDivElement>()
 
   return (
-    <section id="principles" className="section section--surface">
+    <section id="principles" className="section section--surface principles-canvas">
       <div className="container">
         <SectionHeader title={t.principles.title} />
-        <div ref={revealRef} className="principles-list is-reveal-group is-reveal-group--stagger">
+        <div ref={revealRef} className="principles-matrix is-reveal-group is-reveal-group--stagger">
           {t.principles.items.map((item, index) => (
             <div key={item.title} className="principle">
               <span className="principle__index mono">{String(index + 1).padStart(2, '0')}</span>

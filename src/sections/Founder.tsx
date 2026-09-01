@@ -8,21 +8,11 @@ export default function Founder() {
   const signals = t.hero.microcopy.split('·').map((line) => line.trim())
 
   return (
-    <section id="founder" className="section">
+    <section id="founder" className="section founder-canvas">
       <div className="container">
         <SectionHeader title={t.founder.title} />
         <div ref={revealRef} className="founder-grid is-reveal-group">
-          <div className="founder">
-            <p className="founder__lead">{t.founder.body}</p>
-            <ul className="founder-signals mono">
-              {signals.map((line, index) => (
-                <li key={line}>
-                  <span>{String(index + 1).padStart(2, '0')}</span>
-                  {line}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <p className="founder__lead">{t.founder.body}</p>
           <figure className="founder-portrait">
             <img
               src="/professional_headshot_portrait.webp"
@@ -33,6 +23,14 @@ export default function Founder() {
             />
             <figcaption className="mono">Antonio Ballesteros</figcaption>
           </figure>
+          <ul className="founder-signals mono">
+            {signals.map((line, index) => (
+              <li key={line}>
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                {line}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

@@ -908,8 +908,10 @@
   font-size: 0.875rem;
 }
 
-/* Method: the route artwork carries the full four-phase narrative; the only
-   foreground UI is the title block, parked in the artwork's own negative space. */
+/* Method: the route artwork (icons/nodes/numerals only, no text baked in) carries
+   the visual narrative; localized HTML supplies the four phase titles/descriptions,
+   pinned to an aspect-ratio-locked art box so overlay percentages always land on
+   the right icon regardless of viewport height. */
 .method-canvas {
   position: relative;
   isolation: isolate;
@@ -920,14 +922,20 @@
   align-items: flex-start;
 }
 
-.method-canvas__backdrop {
+.method-canvas__backdrop,
+.method-phases {
   position: absolute;
-  inset: 0;
+  inset-inline: 0;
+  bottom: 0;
+  width: 100%;
+  aspect-ratio: 1672 / 941;
+}
+
+.method-canvas__backdrop {
   z-index: -2;
   background-image: url('/background-metodo.png');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
 }
 
 /* Localized veil: only the upper-left quadrant behind the title gets darkened;
@@ -955,15 +963,58 @@
 .method-canvas h2 { font-size: clamp(2.25rem, 3.4vw, 3.5rem); line-height: 1; color: var(--white-deck); }
 .method-canvas__lead { margin-top: 20px; max-width: 38ch; color: var(--white-deck); font-size: clamp(0.95rem, 1.1vw, 1.05rem); line-height: 1.55; }
 .method-canvas__meta { margin-top: 22px; color: var(--harbor-mist); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; }
-.method-canvas__meta span { margin-inline: 7px; color: var(--anclora-gold); }
+.method-canvas__meta-dot { margin-inline: 7px; color: var(--anclora-gold); }
+
+/* Overlay phase text — desktop: absolutely positioned inside the art box, each
+   block anchored just under its matching numeral/icon (percentages measured
+   against the source artwork, stable at any viewport since the box keeps the
+   artwork's exact aspect ratio). No numerals repeated — the artwork already
+   shows 01–04; screen readers still get them via the visually-hidden prefix. */
+.method-phases { z-index: 1; list-style: none; margin: 0; padding: 0; pointer-events: none; }
+.method-phase { position: absolute; }
+.method-phase:nth-child(1) { left: 14%; top: 88.5%; width: 21%; }
+.method-phase:nth-child(2) { left: 35%; top: 81%; width: 21%; }
+.method-phase:nth-child(3) { left: 55%; top: 73.5%; width: 21%; }
+.method-phase:nth-child(4) { left: 74%; top: 61.5%; width: 24%; }
+.method-phase h3 { margin: 0; color: var(--white-deck); font-size: clamp(0.85rem, 1vw, 0.98rem); line-height: 1.2; }
+.method-phase p { margin: 4px 0 0; color: var(--harbor-mist); font-size: clamp(0.72rem, 0.85vw, 0.8rem); line-height: 1.35; }
 
 @media (max-width: 899px) {
-  .method-canvas { min-height: calc(100dvh - var(--sticky-header-height)); }
-  .method-canvas__inner { align-content: start; padding-block: 48px; }
-  /* Lock to full width so all four milestones stay in frame; height follows and
-     anchors to the bottom, since there is no foreground caption row to protect. */
-  .method-canvas__backdrop { background-size: 100% auto; background-position: center bottom; }
+  .method-canvas { min-height: calc(100dvh - var(--sticky-header-height)); flex-direction: column; }
+  .method-canvas__inner { min-height: 0; align-content: start; padding-block: 48px; order: 1; }
   .method-canvas__intro { max-width: 480px; }
+
+  /* Below desktop the overlay can't carry full sentences at icon-width columns.
+     Pull the art out of the absolute-bleed layer into normal flow (so it
+     reserves real height instead of floating under whatever sits at the
+     section's bottom edge), then stack the phase text below it — order
+     preserved, nothing overlapping the icons. */
+  .method-canvas__backdrop {
+    position: relative;
+    inset-inline: auto;
+    bottom: auto;
+    order: 2;
+  }
+  .method-phases {
+    order: 3;
+    position: static;
+    width: auto;
+    aspect-ratio: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 24px;
+    padding: 28px var(--space-3) 36px;
+  }
+  .method-phase,
+  .method-phase:nth-child(1),
+  .method-phase:nth-child(2),
+  .method-phase:nth-child(3),
+  .method-phase:nth-child(4) {
+    position: static;
+    left: auto;
+    top: auto;
+    width: auto;
+  }
 }
 
 @media (max-width: 600px) {
@@ -971,34 +1022,49 @@
   .method-canvas h2 { font-size: clamp(2.1rem, 10vw, 2.9rem); }
   .method-canvas__lead { margin-top: 16px; font-size: 0.92rem; }
   .method-canvas__meta { margin-top: 16px; line-height: 1.8; }
+  .method-phases { grid-template-columns: 1fr; gap: 12px; padding: 24px 20px 28px; }
 }
 
-/* Founder — retrato duotono navy/plata en layout asimétrico: la foto no es un
-   avatar, es una placa de autoridad con marco de instrumento (esquinas HUD) y
-   la luminancia de la imagen mapeada sobre el degradado de la cabina. */
+/* Founder — standalone fullscreen section: title + copy + facts on the left,
+   a stronger-presence portrait on the right, vertically balanced within the
+   full viewport below the header. Retrato duotono navy/plata en layout
+   asimétrico: la foto no es un avatar, es una placa de autoridad con marco
+   de instrumento (esquinas HUD) y la luminancia de la imagen mapeada sobre
+   el degradado de la cabina. */
+.founder-canvas {
+  min-height: calc(100dvh - var(--sticky-header-height));
+  display: flex;
+  align-items: center;
+}
+
+.founder-canvas .container { width: 100%; }
+
 .founder-grid {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: 'lead' 'portrait' 'signals';
   gap: var(--space-4);
 }
 
 @media (min-width: 900px) {
   .founder-grid {
-    grid-template-columns: minmax(0, 1fr) 320px;
-    align-items: start;
-    gap: var(--space-8);
+    grid-template-columns: minmax(0, 1fr) 380px;
+    grid-template-areas:
+      'lead    portrait'
+      'signals portrait';
+    align-items: center;
+    gap: var(--space-3) var(--space-8);
   }
 }
 
-.founder {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-  max-width: 68ch;
-}
+.founder__lead { grid-area: lead; }
+.founder-portrait { grid-area: portrait; }
+.founder-signals { grid-area: signals; }
 
 /* V2 — de párrafo plano a declaración con autoridad: regla dorada a la
    izquierda (cita de responsabilidad, no bio), escala tipográfica mayor. */
 .founder__lead {
+  max-width: 68ch;
   color: var(--white-deck);
   font-size: clamp(1.125rem, 1vw + 1rem, 1.375rem);
   line-height: 1.55;
@@ -1009,7 +1075,7 @@
 .founder-portrait {
   position: relative;
   margin: 0;
-  max-width: 320px;
+  max-width: 380px;
   background: linear-gradient(160deg, #12294E 0%, var(--anchor-navy) 60%, #0D2444 100%);
   border: var(--border-subtle);
   border-radius: var(--radius-card);
@@ -1067,6 +1133,7 @@
 .founder-signals {
   list-style: none;
   margin: 0;
+  max-width: 68ch;
   padding: var(--space-3) 0 0;
   border-top: var(--border-subtle);
   display: flex;
@@ -1085,13 +1152,27 @@
   color: var(--signal-blue);
 }
 
-/* Principles — V2: manifiesto de una sola columna, no grid de dos. El
-   índice pasa a ser una cifra grande (criterio numerado), no una etiqueta
-   discreta junto al texto. */
-.principles-list {
+/* Principles — standalone fullscreen section: an open editorial matrix, not a
+   card grid. Two columns on desktop so every principle fits one viewport;
+   subtle top-border separators carry the structure instead of panels/glass. */
+.principles-canvas {
+  min-height: calc(100dvh - var(--sticky-header-height));
   display: flex;
-  flex-direction: column;
-  max-width: 72ch;
+  align-items: center;
+}
+
+.principles-canvas .container { width: 100%; }
+
+.principles-matrix {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 var(--space-8);
+}
+
+@media (min-width: 900px) {
+  .principles-matrix {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .principle {

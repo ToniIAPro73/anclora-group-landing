@@ -60,6 +60,8 @@ export interface Dictionary {
   }
   method: {
     title: string
+    intro: string
+    metadata: string
     steps: MethodStep[]
   }
   founder: {

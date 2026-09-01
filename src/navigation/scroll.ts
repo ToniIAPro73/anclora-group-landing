@@ -20,7 +20,7 @@ export function syncHeaderHeight(): number {
   return height
 }
 
-export function navigateToSection(id: SectionId, options: { updateHash?: boolean } = {}): void {
+export function navigateToSection(id: SectionId, options: { updateHash?: boolean; instant?: boolean } = {}): void {
   const target = document.getElementById(id)
   if (!target) return
 
@@ -29,7 +29,7 @@ export function navigateToSection(id: SectionId, options: { updateHash?: boolean
 
   window.scrollTo({
     top: Math.max(0, Math.round(targetY)),
-    behavior: prefersReducedMotion() ? 'auto' : 'smooth',
+    behavior: options.instant || prefersReducedMotion() ? 'auto' : 'smooth',
   })
 
   if (options.updateHash) {
@@ -40,4 +40,23 @@ export function navigateToSection(id: SectionId, options: { updateHash?: boolean
 export function sectionIdFromHash(hash: string): SectionId | null {
   const id = hash.replace(/^#/, '')
   return SECTION_IDS.includes(id as SectionId) ? (id as SectionId) : null
+}
+
+/**
+ * Section currently aligned under the sticky header, using the same probe
+ * line as useActiveSectionIndex. Used to re-anchor scroll position by logical
+ * section (not raw scrollY) after content height changes, e.g. a locale swap.
+ */
+export function getActiveSectionId(): SectionId | null {
+  const headerHeight = getHeaderHeight()
+  const probeY = headerHeight + (window.innerHeight - headerHeight) * 0.4
+  let activeId: SectionId | null = null
+
+  for (const id of SECTION_IDS) {
+    const element = document.getElementById(id)
+    if (!element) continue
+    if (element.getBoundingClientRect().top <= probeY) activeId = id
+  }
+
+  return activeId
 }

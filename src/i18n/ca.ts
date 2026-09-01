@@ -69,6 +69,8 @@ const ca: Dictionary = {
   },
   method: {
     title: 'Mètode Anclora',
+    intro: 'Un sistema de treball en quatre fases per convertir la fricció real en productes clars, estructurats i escalables.',
+    metadata: '4 fases · claredat · control · escalabilitat',
     steps: [
       { title: 'Observar', description: 'Detectar fricció real i context operatiu.' },
       { title: 'Dissenyar', description: 'Convertir el problema en un producte mínim útil.' },

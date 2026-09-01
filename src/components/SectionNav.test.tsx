@@ -58,10 +58,10 @@ describe('SectionNav', () => {
     expect(window.history.pushState).toHaveBeenCalledWith({}, '', '#top')
   })
 
-  it('shows only UP on contact and sends it to founder', async () => {
+  it('shows only UP on contact and sends it to principles', async () => {
     const user = userEvent.setup()
-    document.body.innerHTML = '<section id="founder"></section>'
-    const target = document.getElementById('founder') as HTMLElement
+    document.body.innerHTML = '<section id="principles"></section>'
+    const target = document.getElementById('principles') as HTMLElement
     vi.spyOn(target, 'getBoundingClientRect').mockReturnValue({ top: 420 } as DOMRect)
     const scrollTo = vi.spyOn(window, 'scrollTo').mockImplementation(() => undefined)
     Object.defineProperty(window, 'matchMedia', {
@@ -70,11 +70,11 @@ describe('SectionNav', () => {
     })
     vi.spyOn(window.history, 'pushState').mockImplementation(() => undefined)
 
-    renderSectionNav(5)
+    renderSectionNav(6)
 
     expect(screen.queryByRole('button', { name: /bajar/i })).not.toBeInTheDocument()
     await user.click(screen.getByRole('button', { name: /subir/i }))
     expect(scrollTo).toHaveBeenCalledWith({ top: 347, behavior: 'smooth' })
-    expect(window.history.pushState).toHaveBeenCalledWith({}, '', '#founder')
+    expect(window.history.pushState).toHaveBeenCalledWith({}, '', '#principles')
   })
 })

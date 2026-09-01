@@ -69,6 +69,8 @@ const fr: Dictionary = {
   },
   method: {
     title: 'Méthode Anclora',
+    intro: 'Un système de travail en quatre phases pour transformer la friction réelle en produits clairs, structurés et évolutifs.',
+    metadata: '4 phases · clarté · contrôle · évolutivité',
     steps: [
       { title: 'Observer', description: 'Détecter la friction réelle et le contexte opérationnel.' },
       { title: 'Concevoir', description: 'Transformer le problème en produit minimal utile.' },

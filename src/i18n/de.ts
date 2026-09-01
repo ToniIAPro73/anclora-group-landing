@@ -69,6 +69,8 @@ const de: Dictionary = {
   },
   method: {
     title: 'Anclora Methode',
+    intro: 'Ein vierphasiges Arbeitssystem, das echte Reibung in klare, strukturierte und skalierbare Produkte verwandelt.',
+    metadata: '4 Phasen · Klarheit · Kontrolle · Skalierbarkeit',
     steps: [
       { title: 'Beobachten', description: 'Echte Reibung und operativen Kontext erkennen.' },
       { title: 'Gestalten', description: 'Das Problem in ein minimal nützliches Produkt verwandeln.' },

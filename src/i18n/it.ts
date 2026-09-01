@@ -69,6 +69,8 @@ const it: Dictionary = {
   },
   method: {
     title: 'Metodo Anclora',
+    intro: 'Un sistema di lavoro in quattro fasi per trasformare l’attrito reale in prodotti chiari, strutturati e scalabili.',
+    metadata: '4 fasi · chiarezza · controllo · scalabilità',
     steps: [
       { title: 'Osservare', description: 'Individuare l’attrito reale e il contesto operativo.' },
       { title: 'Progettare', description: 'Trasformare il problema in un prodotto minimo utile.' },

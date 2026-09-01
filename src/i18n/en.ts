@@ -68,6 +68,8 @@ const en: Dictionary = {
   },
   method: {
     title: 'Anclora Method',
+    intro: 'A four-phase working system that turns real friction into clear, structured, scalable products.',
+    metadata: '4 phases · clarity · control · scalability',
     steps: [
       { title: 'Observe', description: 'Detect real friction and operational context.' },
       { title: 'Design', description: 'Turn the problem into a minimal useful product.' },

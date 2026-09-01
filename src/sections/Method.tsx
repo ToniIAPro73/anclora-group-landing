@@ -13,8 +13,11 @@ export default function Method() {
         {t.method.steps.map((step, index) => (
           <li key={step.title} className="method-phase">
             <span className="visually-hidden">{String(index + 1).padStart(2, '0')}. </span>
-            <h3>{step.title}</h3>
-            <p>{step.description}</p>
+            <span className="method-phase__dot" aria-hidden="true" />
+            <div className="method-phase__body">
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </div>
           </li>
         ))}
       </ol>

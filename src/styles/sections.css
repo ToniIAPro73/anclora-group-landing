@@ -967,11 +967,15 @@
 
 /* Overlay phase text — desktop: absolutely positioned inside the art box, each
    block centered directly under its matching numeral/icon. Coordinates are the
-   numeral's own pixel centroid measured from the source artwork (not eyeballed),
-   converted to percentages of the 1672x941 art box, so they stay exact at any
-   viewport since the box keeps the artwork's aspect ratio. No numerals repeated
-   in HTML — the artwork already shows 01–04; screen readers get them via the
-   visually-hidden prefix. */
+   numeral glyph's pixel centroid, isolated from the source artwork by color-
+   thresholding + connected-component analysis (not eyeballed), converted to
+   percentages of the 1672x941 art box, so they stay exact at any viewport
+   since the box keeps the artwork's aspect ratio. `left:X%` + `translateX(-50%)`
+   guarantees the text block's horizontal center always lands exactly on that
+   centroid regardless of title/description length, so every locale (ES/EN/DE/
+   FR/IT/CAT) stays centered on its number without per-language tuning. No
+   numerals repeated in HTML — the artwork already shows 01–04; screen readers
+   get them via the visually-hidden prefix. */
 .method-phases {
   z-index: 1;
   list-style: none;
@@ -994,10 +998,10 @@
   align-items: center;
   padding-top: var(--phase-gap);
 }
-.method-phase:nth-child(1) { left: 15.8%; top: 88.4%; }
-.method-phase:nth-child(2) { left: 38.4%; top: 80.9%; }
-.method-phase:nth-child(3) { left: 58.7%; top: 73.6%; }
-.method-phase:nth-child(4) { left: 78.7%; top: 60.7%; }
+.method-phase:nth-child(1) { left: 16.35%; top: 86.38%; }
+.method-phase:nth-child(2) { left: 38.58%; top: 79.21%; }
+.method-phase:nth-child(3) { left: 59.01%; top: 71.9%; }
+.method-phase:nth-child(4) { left: 80.05%; top: 59.89%; }
 .method-phase__body { display: flex; flex-direction: column; align-items: center; gap: 4px; }
 .method-phase h3 { margin: 0; color: var(--white-deck); font-size: clamp(1rem, 1.15vw, 1.15rem); font-weight: 600; line-height: 1.25; }
 .method-phase p { margin: 0; color: var(--harbor-mist); font-size: clamp(0.82rem, 0.95vw, 0.92rem); line-height: 1.4; }

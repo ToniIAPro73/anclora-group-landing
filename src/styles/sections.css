@@ -962,8 +962,6 @@
 .method-canvas__intro { max-width: min(400px, 32vw); }
 .method-canvas h2 { font-size: clamp(2.25rem, 3.4vw, 3.5rem); line-height: 1; color: var(--white-deck); }
 .method-canvas__lead { margin-top: 20px; max-width: 38ch; color: var(--white-deck); font-size: clamp(0.95rem, 1.1vw, 1.05rem); line-height: 1.55; }
-.method-canvas__meta { margin-top: 22px; color: var(--harbor-mist); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; }
-.method-canvas__meta-dot { margin-inline: 7px; color: var(--anclora-gold); }
 
 /* Overlay phase text — desktop: absolutely positioned inside the art box, each
    block centered directly under its matching numeral/icon. Coordinates are the
@@ -985,7 +983,7 @@
   /* One shared vertical rhythm for every phase block, expressed in vw scaled
      to the art box's own aspect ratio (941/1672) so the numeral-to-title gap
      stays visually identical at any viewport width — never a per-item value. */
-  --phase-gap: 0.55vw;
+  --phase-gap: 1.2vw;
 }
 .method-phase {
   position: absolute;
@@ -1056,7 +1054,6 @@
   .method-canvas__inner { padding-block: 40px; }
   .method-canvas h2 { font-size: clamp(2.1rem, 10vw, 2.9rem); }
   .method-canvas__lead { margin-top: 16px; font-size: 0.92rem; }
-  .method-canvas__meta { margin-top: 16px; line-height: 1.8; }
   .method-phases { grid-template-columns: 1fr; gap: 12px; padding: 24px 20px 28px; }
 }
 

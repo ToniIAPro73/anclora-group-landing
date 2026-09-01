@@ -3,22 +3,20 @@ import { useRevealOnScroll } from '../hooks/useRevealOnScroll'
 
 export default function Method() {
   const { t } = useLocale()
-  const revealRef = useRevealOnScroll<HTMLOListElement>()
+  const revealRef = useRevealOnScroll<HTMLDivElement>()
 
   return (
     <section id="method" className="method-canvas" aria-labelledby="method-title">
       <div className="method-canvas__backdrop" aria-hidden="true" />
-      <ol ref={revealRef} className="method-phases is-reveal-group" aria-label="Las cuatro fases del Método Anclora">
+      <ol className="visually-hidden" aria-label="Las cuatro fases del Método Anclora">
         {t.method.steps.map((step, index) => (
-          <li key={step.title} className="method-phase">
-            <span className="visually-hidden">{String(index + 1).padStart(2, '0')}. {step.title}: </span>
-            <p className="method-phase__caption" aria-hidden="true">{step.description}</p>
+          <li key={step.title}>
+            {String(index + 1).padStart(2, '0')}. {step.title}: {step.description}
           </li>
         ))}
       </ol>
-      <div className="container method-canvas__inner">
-        <div className="method-canvas__intro">
-          <span className="method-canvas__eyebrow mono">FRAMEWORK OPERATIVO</span>
+      <div className="method-canvas__inner">
+        <div ref={revealRef} className="method-canvas__intro is-reveal-group">
           <h2 id="method-title">{t.method.title}</h2>
           <p className="method-canvas__lead">
             Un sistema de trabajo en cuatro fases para convertir fricción real en productos claros, estructurados y escalables.

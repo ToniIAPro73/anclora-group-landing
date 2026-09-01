@@ -908,149 +908,76 @@
   font-size: 0.875rem;
 }
 
-/* Method — línea de tiempo, no cajas: los cuatro pasos cuelgan de una línea
-   de progresión que se ilumina en signal-blue cuando la secuencia entra en
-   viewport (.is-revealed la pone useRevealOnScroll). Cada paso es un nodo:
-   punto de contacto + índice mono + título. */
-.method-sequence {
+/* Method: an immersive canvas around the supplied route artwork. */
+.method-canvas {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
+  isolation: isolate;
+  min-height: calc(100dvh - var(--sticky-header-height));
+  overflow: hidden;
+  background: var(--anchor-navy);
 }
 
-/* Línea base (plateada) y línea de progresión (signal-blue) */
-.method-sequence::before,
-.method-sequence::after {
+.method-canvas__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url('/background-metodo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.method-canvas::before {
   content: '';
   position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(10, 31, 61, 0.96) 0%, rgba(10, 31, 61, 0.78) 31%, rgba(10, 31, 61, 0.28) 63%, rgba(10, 31, 61, 0.52) 100%), linear-gradient(180deg, rgba(10, 31, 61, 0.2), rgba(10, 31, 61, 0.58));
 }
 
-.method-sequence::before {
-  background: rgba(229, 231, 235, 0.14);
+.method-canvas__inner {
+  min-height: inherit;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: clamp(48px, 8vw, 144px);
+  padding-block: clamp(56px, 8vh, 96px);
 }
 
-.method-sequence::after {
-  background: var(--signal-blue);
-  box-shadow: var(--glow-signal);
-  transition: transform 1400ms var(--ease-out) 240ms;
+.method-canvas__intro { max-width: 470px; }
+.method-canvas__eyebrow { display: block; margin-bottom: 18px; color: var(--signal-blue); letter-spacing: 0.15em; font-size: 0.7rem; }
+.method-canvas h2 { font-size: clamp(2.75rem, 4.5vw, 5.25rem); line-height: 0.98; color: var(--white-deck); }
+.method-canvas__lead { margin-top: 24px; max-width: 42ch; color: var(--white-deck); font-size: clamp(1rem, 1.2vw, 1.18rem); line-height: 1.55; }
+.method-canvas__meta { margin-top: 28px; color: var(--harbor-mist); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.method-canvas__meta span { margin-inline: 7px; color: var(--anclora-gold); }
+
+.method-sequence { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.method-step { min-height: 168px; padding: 24px; border: 1px solid rgba(229, 231, 235, 0.2); border-radius: 6px; background: rgba(10, 31, 61, 0.58); box-shadow: var(--panel-depth), 0 18px 42px rgba(2, 9, 24, 0.22); backdrop-filter: blur(8px) saturate(1.08); }
+.method-step:nth-child(2), .method-step:nth-child(4) { transform: translateY(28px); }
+.method-step__index { display: block; color: var(--signal-blue); font-size: 0.72rem; }
+.method-step h3 { margin-top: 34px; color: var(--white-deck); font-size: clamp(1.15rem, 1.4vw, 1.4rem); }
+.method-step p { margin-top: 8px; color: var(--harbor-mist); font-size: 0.88rem; line-height: 1.5; }
+
+@media (max-width: 899px) {
+  .method-canvas { min-height: calc(100dvh - var(--sticky-header-height)); }
+  .method-canvas__inner { grid-template-columns: 1fr; align-content: center; gap: 40px; padding-block: 64px; }
+  .method-canvas__backdrop { background-size: auto 100%; background-position: 72% center; }
+  .method-canvas::before { background: linear-gradient(180deg, rgba(10, 31, 61, 0.94) 0%, rgba(10, 31, 61, 0.8) 46%, rgba(10, 31, 61, 0.52) 100%); }
+  .method-canvas__intro { max-width: 600px; }
+  .method-sequence { max-width: 680px; }
 }
 
-/* Móvil: línea vertical a la izquierda */
-.method-sequence::before {
-  top: var(--space-2);
-  bottom: var(--space-2);
-  left: 4px;
-  width: 1px;
-}
-
-.method-sequence::after {
-  top: var(--space-2);
-  bottom: var(--space-2);
-  left: 4px;
-  width: 1px;
-  transform: scaleY(0);
-  transform-origin: top;
-}
-
-.method-sequence.is-revealed::after {
-  transform: scaleY(1);
-}
-
-.method-step {
-  position: relative;
-  padding-left: var(--space-3);
-}
-
-/* Nodo de contacto del paso */
-.method-step::before {
-  content: '';
-  position: absolute;
-  top: 6px;
-  left: 0;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: rgba(229, 231, 235, 0.45);
-  transition: background var(--dur-slow) var(--ease-out), box-shadow var(--dur-slow) var(--ease-out);
-}
-
-.method-sequence.is-revealed .method-step::before {
-  background: var(--signal-blue);
-  box-shadow: var(--glow-signal);
-}
-
-/* Los nodos se encienden en secuencia, siguiendo la línea de progresión */
-.method-sequence.is-revealed .method-step:nth-child(1)::before { transition-delay: 240ms; }
-.method-sequence.is-revealed .method-step:nth-child(2)::before { transition-delay: 560ms; }
-.method-sequence.is-revealed .method-step:nth-child(3)::before { transition-delay: 880ms; }
-.method-sequence.is-revealed .method-step:nth-child(4)::before { transition-delay: 1200ms; }
-
-.method-step__index {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--signal-blue);
-  letter-spacing: 0.02em;
-}
-
-.method-step h3 {
-  margin-top: 4px;
-}
-
-.method-step p {
-  color: var(--harbor-mist);
-  font-size: 0.9375rem;
-  margin-top: var(--space-1);
-}
-
-/* Desktop: línea horizontal en la parte superior */
-@media (min-width: 900px) {
-  .method-sequence {
-    flex-direction: row;
-    align-items: stretch;
-    gap: var(--space-4);
-  }
-
-  .method-sequence::before {
-    top: 4px;
-    left: 0;
-    right: 0;
-    width: auto;
-    height: 1px;
-  }
-
-  .method-sequence::after {
-    top: 4px;
-    left: 0;
-    right: 0;
-    bottom: auto;
-    width: auto;
-    height: 1px;
-    transform: scaleX(0);
-    transform-origin: left;
-  }
-
-  .method-step {
-    flex: 1;
-    padding-left: 0;
-    padding-top: var(--space-3);
-  }
-
-  .method-step::before {
-    top: 0;
-  }
-
-  /* V2 — secuencia arquitectónica: el texto de los pasos pares cae un
-     escalón por debajo de los impares. Los nodos siguen anclados a la
-     línea; sólo el contenido gana profundidad de lectura. */
-  .method-step:nth-child(even) h3,
-  .method-step:nth-child(even) p {
-    transform: translateY(var(--space-4));
-  }
-
-  .method-step:nth-child(even) {
-    padding-bottom: var(--space-4);
-  }
+@media (max-width: 600px) {
+  .method-canvas__inner { align-content: start; gap: 36px; padding-block: 52px 64px; }
+  .method-canvas__backdrop { background-size: auto 78%; background-position: 68% 12%; }
+  .method-canvas::before { background: linear-gradient(180deg, rgba(10, 31, 61, 0.96) 0%, rgba(10, 31, 61, 0.86) 42%, rgba(10, 31, 61, 0.7) 100%); }
+  .method-canvas h2 { font-size: clamp(2.7rem, 13vw, 4rem); }
+  .method-canvas__lead { margin-top: 20px; font-size: 1rem; }
+  .method-canvas__meta { margin-top: 20px; line-height: 2; }
+  .method-sequence { grid-template-columns: 1fr; gap: 12px; }
+  .method-step, .method-step:nth-child(2), .method-step:nth-child(4) { min-height: 0; padding: 20px; transform: none; }
+  .method-step h3 { margin-top: 22px; }
 }
 
 /* Founder — retrato duotono navy/plata en layout asimétrico: la foto no es un

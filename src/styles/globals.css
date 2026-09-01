@@ -8,7 +8,7 @@
 
 html {
   scroll-behavior: auto;
-  scroll-padding-top: 0;
+  scroll-padding-top: var(--sticky-header-height);
 }
 
 body {

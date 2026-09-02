@@ -35,8 +35,8 @@ export const ecosystemLines: EcosystemLine[] = [
   },
   {
     id: 'publishing-digital-knowledge',
-    name: 'Publishing & Digital Knowledge',
-    description: 'Contenido, conocimiento, editorial',
-    products: ['Anclora Insights'],
+    name: 'Content & AI',
+    description: 'Rama editorial dedicada a investigar, crear, transformar y publicar contenido digital con apoyo de inteligencia artificial.',
+    products: ['Anclora Insights ADN', 'Anclora Content Generator AI', 'Anclora Talent'],
   },
 ]

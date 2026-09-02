@@ -1,6 +1,8 @@
+import { getTalentUrl } from '../lib/urls'
+
 export type ProductTier = 1 | 2
 
-export type ProductStatus = 'en desarrollo' | 'en validación' | 'en piloto' | 'ecosistema interno'
+export type ProductStatus = 'en desarrollo' | 'en validación' | 'en piloto' | 'ecosistema interno' | 'en pausa'
 
 export interface Product {
   id: string
@@ -53,11 +55,28 @@ export const products: Product[] = [
   },
   {
     id: 'anclora-insights',
-    name: 'Anclora Insights',
+    name: 'Anclora Insights ADN',
     lineId: 'publishing-digital-knowledge',
-    description: 'Sello editorial y productos digitales de conocimiento aplicado.',
+    description: 'Sello editorial de Anclora Group dedicado a la investigación, el análisis y la creación de conocimiento aplicado.',
     tier: 1,
     status: 'ecosistema interno',
+  },
+  {
+    id: 'anclora-content-generator-ai',
+    name: 'Anclora Content Generator AI',
+    lineId: 'publishing-digital-knowledge',
+    description: 'Herramienta para crear, transformar y adaptar contenidos mediante inteligencia artificial.',
+    tier: 1,
+    status: 'ecosistema interno',
+  },
+  {
+    id: 'anclora-talent',
+    name: 'Anclora Talent',
+    lineId: 'publishing-digital-knowledge',
+    description: 'Plataforma editorial para crear, editar, maquetar y publicar proyectos digitales.',
+    tier: 1,
+    status: 'en pausa',
+    productUrl: getTalentUrl(),
   },
   {
     id: 'anclora-nexus',

@@ -34,7 +34,15 @@ export default function ProductCard({ product, ctaLabel, variant = 'card' }: Pro
         <p>{description}</p>
       </div>
       {ctaLabel &&
-        (product.productUrl ? (
+        // Canonical status (product.status, not the translated copy) gates
+        // the CTA: a paused product never renders as a clickable, "open me
+        // now" link — the URL is still resolved and kept on the data object
+        // (see getTalentUrl), just not exposed as an active affordance.
+        (product.status === 'en pausa' ? (
+          <span className="product-card__cta product-card__cta--disabled" aria-disabled="true">
+            {status}
+          </span>
+        ) : product.productUrl ? (
           <a
             className="product-card__cta"
             href={product.productUrl}

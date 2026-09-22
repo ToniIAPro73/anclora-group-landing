@@ -27,9 +27,12 @@ function AppRoutes() {
   const legalKey = LEGAL_ROUTES[path]
 
   return (
-    <>
+    <div className="ac-app-shell product-anclora-group-landing" data-profile="marketing">
+      <a className="ac-app-shell__skip-link" href="#main-content">
+        Saltar al contenido principal
+      </a>
       <Header />
-      <main>
+      <main id="main-content">
         {legalKey ? (
           <LegalPage pageKey={legalKey} />
         ) : (
@@ -47,7 +50,7 @@ function AppRoutes() {
       </main>
       {!legalKey && <SectionNav />}
       <Footer />
-    </>
+    </div>
   )
 }
 

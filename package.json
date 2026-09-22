@@ -11,6 +11,7 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@anclora/design-system": "github:ToniIAPro73/anclora-design-system#6548d87347b556c42b8f85693914e1c94d176743",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

@@ -100,7 +100,7 @@ export default function Header() {
   }, [isMenuOpen, closeMenu])
 
   return (
-    <header className="site-header">
+    <header className="site-header ac-app-shell__topbar">
       <div className="container site-header__inner">
         <a href="#top" className="site-header__logo" onClick={(event) => handleAnchorClick(event, '#top')}>
           <img src={lockupHorizontalDark} alt="Anclora Group" />
@@ -112,7 +112,7 @@ export default function Header() {
               key={item.key}
               href={item.href}
               className={activeSectionId === item.id ? 'is-active' : undefined}
-              aria-current={activeSectionId === item.id ? 'page' : undefined}
+              aria-current={activeSectionId === item.id ? 'location' : undefined}
               onClick={(event) => handleAnchorClick(event, item.href)}
             >
               {t.nav[item.key as HeaderNavKey]}
@@ -143,13 +143,17 @@ export default function Header() {
         </div>
       </div>
 
-      {isMenuOpen && (
-        <nav id="mobile-nav" className="site-header__mobile-nav container" aria-label="Navegación móvil">
+      <nav
+        id="mobile-nav"
+        className="site-header__mobile-nav container"
+        aria-label="Navegación móvil"
+        hidden={!isMenuOpen}
+      >
           {navItems.map((item) => (
             <a
               key={item.key}
               href={item.href}
-              aria-current={activeSectionId === item.id ? 'page' : undefined}
+              aria-current={activeSectionId === item.id ? 'location' : undefined}
               onClick={(event) => {
                 handleAnchorClick(event, item.href)
                 closeMenu()
@@ -158,8 +162,7 @@ export default function Header() {
               {t.nav[item.key as HeaderNavKey]}
             </a>
           ))}
-        </nav>
-      )}
+      </nav>
     </header>
   )
 }

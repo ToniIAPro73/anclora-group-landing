@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { DEFAULT_LOCALE, dictionaries, type Locale } from './index'
-import { LocaleContext, type LocaleContextValue } from './localeContext'
+import { LocaleContext, type LocaleContextValue } from './context'
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
   const [locale, setLocale] = useState<Locale>(DEFAULT_LOCALE)

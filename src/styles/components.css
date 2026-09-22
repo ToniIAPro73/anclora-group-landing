@@ -125,6 +125,10 @@
   border-top: var(--border-subtle);
 }
 
+.site-header__mobile-nav[hidden] {
+  display: none;
+}
+
 .site-header__mobile-nav a {
   display: flex;
   align-items: center;

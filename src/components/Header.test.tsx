@@ -32,6 +32,9 @@ describe('Header', () => {
     await user.click(toggle)
 
     expect(toggle).toHaveAttribute('aria-expanded', 'true')
+    expect(toggle).toHaveAttribute('aria-controls', 'mobile-nav')
+    expect(document.getElementById('mobile-nav')).toBeInTheDocument()
+    expect(document.body).toHaveClass('is-mobile-nav-open')
     expect(screen.getByRole('navigation', { name: /navegación móvil/i })).toBeInTheDocument()
   })
 
@@ -45,6 +48,7 @@ describe('Header', () => {
 
     expect(toggle).toHaveAttribute('aria-expanded', 'false')
     expect(screen.queryByRole('navigation', { name: /navegación móvil/i })).not.toBeInTheDocument()
+    expect(document.body).not.toHaveClass('is-mobile-nav-open')
     expect(toggle).toHaveFocus()
   })
 

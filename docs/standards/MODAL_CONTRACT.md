@@ -15,8 +15,8 @@ Regla:
 
 ## Autoridad
 
-- Registro operativo: `contracts/governance/contracts-registry.json`
-- Inventario aplicable: `docs/governance/ecosystem-repos.json`
+- Registro operativo: `00-governance/registry/contracts-registry.json`
+- Inventario aplicable: `00-governance/registry/ecosystem-repos.json`
 - Fuente ejecutable relacionada: `anclora-design-system`
 
 ## Reglas obligatorias
@@ -63,9 +63,9 @@ Nota:
 
 ## Sincronización con repos consumidores
 
-- Contrato fuente en la bóveda: `contracts/components/MODAL_CONTRACT.md`
-- Target normal de propagación: `docs/standards/`
-- Dependencia de auditoría y propagación desde `contracts/governance/contracts-registry.json`
+- Contrato fuente en la bóveda: `00-governance/contracts/components/MODAL_CONTRACT.md`
+- Target normal de propagación: `10-group/brand/`
+- Dependencia de auditoría y propagación desde `00-governance/registry/contracts-registry.json`
 
 ## Modales densos
 - Formularios complejos: usar modal ancho o casi fullscreen.

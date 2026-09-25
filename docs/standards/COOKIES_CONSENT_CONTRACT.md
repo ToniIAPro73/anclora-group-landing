@@ -396,9 +396,9 @@ Antes de marcar un repo como conforme, se recomienda:
 
 ## Sincronización con repos consumidores
 
-- Contrato fuente en la bóveda: `contracts/logic/COOKIES_CONSENT_CONTRACT.md`
-- Target normal de propagación: `docs/standards/` en cada repo consumidor
-- La adopción se registra en `contracts/governance/CONTRACT_COMPLIANCE_MATRIX.md`
+- Contrato fuente en la bóveda: `00-governance/contracts/logic/COOKIES_CONSENT_CONTRACT.md`
+- Target normal de propagación: `10-group/brand/` en cada repo consumidor
+- La adopción se registra en `00-governance/registry/CONTRACT_COMPLIANCE_MATRIX.md`
 
 ---
 

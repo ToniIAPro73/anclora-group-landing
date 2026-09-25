@@ -4,17 +4,18 @@
 Definir el marco contractual UX/UI del ecosistema Anclora y fijar una ruta única de consulta para cualquier modificación visual o creación de una nueva aplicación.
 
 Ruta canónica:
-- `docs/standards/`
+- `10-group/brand/`
 
 ## Autoridad
 
-- Registro operativo: `contracts/governance/contracts-registry.json`
-- Inventario de repos Anclora: `docs/governance/ecosystem-repos.json`
+- Registro operativo: `00-governance/registry/contracts-registry.json`
+- Inventario de repos Anclora: `00-governance/registry/ecosystem-repos.json`
 - Fuente ejecutable de UI: `anclora-design-system`
 
 Regla de publicación:
-- La bóveda debe mantener una copia maestra de estos contratos en `docs/standards/`.
-- Cada aplicación debe incluir en su propio `docs/standards/` los contratos que le apliquen.
+- La bóveda debe mantener una copia maestra de estos contratos en `10-group/brand/`.
+- Excepción de canonicidad: los 4 anexos de branding `ANCLORA_BRANDING_ICON_SYSTEM.md`, `ANCLORA_BRANDING_COLOR_TOKENS.md`, `ANCLORA_BRANDING_TYPOGRAPHY.md` y `ANCLORA_BRANDING_FAVICON_SPEC.md` tienen en `10-group/brand/` de la bóveda su **fuente canónica** (no una copia sin autoridad), registrada en `00-governance/registry/contracts-registry.json`.
+- Cada aplicación debe incluir en su propio `10-group/brand/` los contratos que le apliquen.
 - Si un contrato se modifica a nivel ecosistema, la bóveda y las aplicaciones afectadas deben actualizarse en la misma ronda.
 
 ## Modelo de autoridad
@@ -62,14 +63,23 @@ Aplicaciones internas:
 - `anclora-visionflow` *(añadida 2026-08, verificada contra código real)*
 - `anclora-linguo-cam` *(incorporada 2026-08-02 al ecosistema gobernado — antes clasificada como "Independent Product"; decisión explícita del cliente, verificada contra código real)*
 
+Aplicaciones MicroSaaS:
+- `anclora-tableextractor`
+- `anclora-clearsheet`
+- `anclora-purgedoc`
+
+El tier `MicroSaaS` agrupa utilidades SaaS enfocadas y recurrentes con flujos compactos,
+feedback de procesamiento explícito y resultados verificables. Consume el tier ejecutable
+`tier-microsaas` de `anclora-design-system`; no crea una familia paralela de componentes.
+
 Aplicaciones premium:
 - `anclora-impulso`
 - `anclora-command-center`
 - `anclora-synergi`
 - `anclora-data-lab`
 - `anclora-energyscan`
-- `anclora-talent` *(estado: pausado, fuera de alcance activo desde 2026-08 — ver `docs/governance/ecosystem-repos.json`)*
-- `anclora-guesthub` *(añadida 2026-08, verificada contra código real, estado `pre-mvp`)* *(renombrado a GuestHub 2026-08)*
+- `anclora-talent` *(estado: pausado, fuera de alcance activo desde 2026-08 — ver `00-governance/registry/ecosystem-repos.json`)*
+- `anclora-guesthub` *(añadida 2026-08 como `anclora-syncxml`, verificada contra código real, estado `pre-mvp`; renombrada a GuestHub 2026-08)*
 - `anclora-groundsync` *(añadida 2026-08-03, verificada contra código real — app interna de uso operativo pero gobernada como producto independiente, comparable a `anclora-impulso`; decisión explícita del cliente)*
 
 Aplicaciones ultra premium:
@@ -83,6 +93,9 @@ Aplicaciones portfolio / showcase *(sección añadida 2026-08)*:
 - `anclora-energyscan-showcase` *(hereda tema completo de `anclora-energyscan`, no el genérico portfolio — es el producto real en fase MVP mostrándose, no una pieza de demo)*
 - `anclora-syncxml-showcase` *(mismo criterio que energyscan-showcase, producto real en fase pre-mvp)*
 - `anclora-fiscal-showcase`
+- `anclora-advisor-ai-showcase` *(registrado 2026-09-25, CHG-0015; hereda de `anclora-advisor-ai`)*
+- `anclora-guesthub-showcase` *(registrado 2026-09-25, CHG-0015; hereda de `anclora-guesthub`)*
+- `anclora-shiftimport-showcase` *(registrado 2026-09-25, CHG-0015; hereda de `anclora-shiftimport`)*
 - `anclora-group-landing` *(identidad propia verificada 2026-08 — usa el brand book completo, navy/signal-blue/command-purple, NO el tema genérico portfolio-gold; ver `ANCLORA_BRANDING_COLOR_TOKENS.md`)*
 
 > **Regularización 2026-09-25 (CHG-0014):** `anclora-portfolio` y `anclora-azure-bay-landing` usan el logo **Ultra Premium** (aplicaciones de muestra); `anclora-portfolio-showcase` hereda Ultra Premium de `anclora-portfolio`; el resto de showcases heredan el logo de su aplicación de origen. La pertenencia a esta sección (tema y contrato de superficie) no cambia.
@@ -93,9 +106,9 @@ Fuera de alcance en esta fase:
 ## Fuentes auditadas
 
 Contratos documentados detectados:
-- `contracts/components/UI_MOTION_CONTRACT.md` en `anclora-impulso`
-- `contracts/components/MODAL_CONTRACT.md` en `anclora-impulso`
-- `contracts/logic/LOCALIZATION_CONTRACT.md` en `anclora-impulso`
+- `00-governance/contracts/components/UI_MOTION_CONTRACT.md` en `anclora-impulso`
+- `00-governance/contracts/components/MODAL_CONTRACT.md` en `anclora-impulso`
+- `00-governance/contracts/logic/LOCALIZATION_CONTRACT.md` en `anclora-impulso`
 - `sdd/contracts/UI-SURFACE-INTERACTION-CONTRACT.md` en `anclora-nexus`
 - `sdd/contracts/UI-PAGE-PRIMITIVES-CONTRACT.md` en `anclora-nexus`
 - `sdd/contracts/UI-EXTERNAL-PORTAL-PREMIUM-CONTRACT.md` en `anclora-nexus`
@@ -192,9 +205,9 @@ Excepciones documentadas:
 
 ## Sincronización con repos consumidores
 
-- Contrato fuente en la bóveda: `contracts/core/ANCLORA_ECOSYSTEM_CONTRACT_GROUPS.md`
-- Target normal de propagación: `docs/standards/`
-- La auditoría y la propagación se resuelven desde `contracts/governance/contracts-registry.json`
+- Contrato fuente en la bóveda: `00-governance/contracts/core/ANCLORA_ECOSYSTEM_CONTRACT_GROUPS.md`
+- Target normal de propagación: `10-group/brand/`
+- La auditoría y la propagación se resuelven desde `00-governance/registry/contracts-registry.json`
 - Este contrato no aplica a `Independent Products` salvo mención explícita
 
 ## Orden de lectura obligatorio
@@ -221,9 +234,9 @@ Al tocar modales:
 5. `LOCALIZATION_CONTRACT.md`
 
 Al crear una app nueva:
-1. clasificarla como `interna`, `premium` o `ultra premium`
+1. clasificarla como `interna`, `microSaaS`, `premium` o `ultra premium`
 2. clasificar además `domain`, `product_archetype`, `system_role` y `ecosystem_clusters`
-3. copiar a `docs/standards/` el set base y el contrato de grupo
+3. copiar a `10-group/brand/` el set base y el contrato de grupo
 4. partir de `anclora-design-system` para `tokens`, `themes`, `components` y `patterns`
 5. leer la capa de branding correspondiente
 6. documentar cualquier excepción local antes de implementar componentes nuevos
@@ -247,6 +260,9 @@ Al crear una app nueva:
 | `anclora-fiscal` | Interna | Pendiente de auditoría de locales | `dark` confirmado (navy `#070C13` + dorado `#D7A957`), `light` no verificado | Base + interno |
 | `anclora-visionflow` | Interna | Pendiente de auditoría de locales | `dark/light` confirmado — ambos modos definidos en el repo real (`.dark { --avf-accent }` y `:root` claro) | Base + interno |
 | `anclora-linguo-cam` | Interna | Pendiente de auditoría de locales | `dark/light` confirmado — ambos modos definidos en `index.css` real; acento lima `#59B635` asignado 2026-08-02 al incorporarla (resuelve colisión exacta con `advisor-ai`, ver `ANCLORA_BRANDING_MASTER_CONTRACT.md`) | Base + interno |
+| `anclora-tableextractor` | MicroSaaS | `es`, `en` | `dark/light/system` documentado; acento cyan `#38BDF8` | Base + microsaas |
+| `anclora-clearsheet` | MicroSaaS | `es`, `en` | `dark/light` documentado; acento azul `#2563EB` | Base + microsaas |
+| `anclora-purgedoc` | MicroSaaS | `es`, `en` | `dark/light/system` documentado; acento azul `#3B82F6` | Base + microsaas |
 | `anclora-guesthub` | Premium | Pendiente de auditoría de locales | `dark` confirmado (navy `#070A12` + dorado apagado `#BFA46A`), `light` no verificado en esta sesión | Base + premium |
 | `anclora-groundsync` | Premium | Pendiente de auditoría de locales | `dark/light` confirmado — ambos modos definidos en `src/index.css` real (`:root` dark + `:root[data-theme='light']`); accent `#afd2fa`/`#2f6fd9` | Base + premium |
 | `anclora-portfolio` | Portfolio / showcase | `es`, `en` | tema editorial único o dual diseñado | Base + portfolio |
@@ -282,7 +298,7 @@ Excepciones documentadas activas:
   - una necesidad de marca explícita
   - una necesidad legal o de accesibilidad
   - una necesidad operativa de dominio
-- Toda excepción debe documentarse en el `docs/standards/` del repo afectado.
+- Toda excepción debe documentarse en el `10-group/brand/` del repo afectado.
 
 ## Criterio de cumplimiento
 
@@ -293,4 +309,3 @@ Una app no cumple el contrato si:
 - crea nuevas superficies fuera de la gramática del grupo
 - reintroduce hardcoded strings donde el contrato exige i18n
 - cambia el foreground o el contraste de una familia de botón entre temas sin mantener semántica estable o sin documentar una variante real por tema
-

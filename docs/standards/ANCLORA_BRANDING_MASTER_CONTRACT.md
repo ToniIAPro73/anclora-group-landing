@@ -111,6 +111,8 @@ Al modificar la identidad de una app existente:
 | Portfolio (excepción — hereda tema de producto real) | `anclora-energyscan-showcase`, `anclora-syncxml-showcase` | Cobre rosado (heredado) | DM Sans (heredado) | No siguen el tema editorial genérico — son el propio producto en fase MVP/pre-MVP mostrándose, heredan el tema completo de su app madre. |
 | Portfolio (excepción — brand book propio) | `anclora-group-landing` | N/A — identidad navy/azul/violeta propia | DM Sans + JetBrains Mono | Única app portfolio que implementa el brand book completo en vez del tema editorial genérico. Se gobierna con este contrato maestro. |
 
+> **Actualización 2026-09-25 (CHG-0014) — logo común por tier.** Desde esta fecha todas las apps de un tier comparten un único logo; la columna "Borde de icono" queda sustituida por el tier de logo: Entidad Matriz → plata · SaaS (`anclora-tableextractor`, `anclora-clearsheet`, `anclora-purgedoc`) → cian · Ultra Premium (`anclora-private-estates`, `anclora-private-estates-landing`, `anclora-portfolio`, `anclora-azure-bay-landing`, `anclora-portfolio-showcase`) → oro · Premium → cobre rosado · Internal → teal. Las showcases usan el logo de su aplicación de origen. Especificación en `10-group/brand/ANCLORA_BRANDING_ICON_SYSTEM.md`.
+
 ## Regla de escalera visual
 
 ```

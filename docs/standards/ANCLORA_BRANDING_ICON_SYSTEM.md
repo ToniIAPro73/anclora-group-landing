@@ -18,6 +18,24 @@ related:
 
 Definir el color, materialidad y estructura de cada icono del ecosistema Anclora. Cualquier generación o modificación de un icono debe seguir esta especificación.
 
+## Sistema de logos por tier (vigente desde 2026-09-25, CHG-0014)
+
+> Sustituye al mapa de iconos por aplicación que figura más abajo, que se conserva como registro histórico. Cada tier tiene **un único logo** compartido por todas sus aplicaciones; la geometría (aro, grosor, tres ondas, separación, encuadre) es idéntica en los cinco y solo cambia el color. Acabado metálico satinado sobrio: sin destellos blancos, halos, resplandor ni sombras exteriores; legible a 16–512 px.
+
+| Tier | Base | Luz | Sombra | Interior | Aplicaciones |
+| --- | --- | --- | --- | --- | --- |
+| Entidad Matriz | `#A8AEB8` | `#D0D4DC` | `#6E7580` | `#212838` navy | `anclora-group`, `anclora-group-landing` |
+| SaaS | `#22C7D6` | `#7DE7EE` | `#087F91` | `#0F3445` petróleo | `anclora-tableextractor`, `anclora-clearsheet`, `anclora-purgedoc` |
+| Ultra Premium | `#D4AF37` | `#F0D060` | `#8B7322` | `#0D3849` teal | `anclora-private-estates`, `anclora-private-estates-landing`, `anclora-portfolio`, `anclora-azure-bay-landing`, `anclora-portfolio-showcase` |
+| Premium | `#C07860` | `#E0A090` | `#805040` | `#1A2033` navy | tier `premium` del registro + showcases derivadas |
+| Internal | `#1DAB89` | `#63D8B7` | `#0E6D5B` | `#15211F` carbón verdoso | tier `internal` del registro + showcases derivadas |
+
+- **Maestros canónicos:** `anclora-design-system/assets/logos/tiers/anclora-<tier>-tier.{png,webp,jpg}` (1024 × 1024; PNG/WebP con alfa real; JPG sobre fondo corporativo `#0C1524`, < 1 MB).
+- **Nomenclatura:** cada aplicación conserva sus nombres de archivo propios; solo cambia el contenido.
+- **Showcases:** usan el logo de su aplicación de origen (`derived_from`): portfolio-showcase → Ultra Premium; energyscan-, syncxml-, guesthub- y shiftimport-showcase → Premium; fiscal- y advisor-ai-showcase → Internal.
+- **Aplicaciones de muestra:** `anclora-portfolio` y `anclora-azure-bay-landing` → Ultra Premium.
+- **Derivados:** favicons, ICO multirresolución, apple-touch, iconos PWA y medallones dentro de lockups se regeneran desde el maestro de su tier conservando dimensiones.
+
 ## Estructura del icono
 
 Todos los iconos comparten la misma geometría:

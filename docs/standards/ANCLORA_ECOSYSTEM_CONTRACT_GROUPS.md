@@ -85,6 +85,8 @@ Aplicaciones portfolio / showcase *(sección añadida 2026-08)*:
 - `anclora-fiscal-showcase`
 - `anclora-group-landing` *(identidad propia verificada 2026-08 — usa el brand book completo, navy/signal-blue/command-purple, NO el tema genérico portfolio-gold; ver `ANCLORA_BRANDING_COLOR_TOKENS.md`)*
 
+> **Regularización 2026-09-25 (CHG-0014):** `anclora-portfolio` y `anclora-azure-bay-landing` usan el logo **Ultra Premium** (aplicaciones de muestra); `anclora-portfolio-showcase` hereda Ultra Premium de `anclora-portfolio`; el resto de showcases heredan el logo de su aplicación de origen. La pertenencia a esta sección (tema y contrato de superficie) no cambia.
+
 Fuera de alcance en esta fase:
 - ninguno
 

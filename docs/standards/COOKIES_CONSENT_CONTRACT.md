@@ -409,4 +409,3 @@ Antes de marcar un repo como conforme, se recomienda:
 - [[MODAL_CONTRACT]] — aplica al modal de preferencias de cookies: cierre claro, acciones en footer del modal, sin scroll evitable.
 - [[LOCALIZATION_CONTRACT]] — aplica a los textos de cookies en apps multilingües.
 - [[CONTRACT_COMPLIANCE_MATRIX]] — donde se registra el estado de cumplimiento por app.
-

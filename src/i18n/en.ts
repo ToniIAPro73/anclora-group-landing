@@ -31,7 +31,7 @@ const en: Dictionary = {
     instrumentCaption: 'Each mark on the ring represents an active business line in the Anclora ecosystem.',
   },
   ecosystem: {
-    title: 'Five lines of operation. One system of control.',
+    title: 'Six lines of operation. One system of control.',
     text: 'Anclora Group combines product, automation, data and applied intelligence to build practical tools where operational clarity makes the difference.',
     lines: {
       'fiscal-compliance': { name: 'Fiscal & Compliance', description: 'Taxation, invoicing and compliance.' },
@@ -39,12 +39,13 @@ const en: Dictionary = {
       'energy-efficiency': { name: 'Energy & Efficiency', description: 'Energy efficiency and analysis.' },
       'real-estate-intelligence': { name: 'Real Estate Intelligence', description: 'Real estate intelligence and premium assets.' },
       'publishing-digital-knowledge': { name: 'Content & AI', description: 'Editorial branch dedicated to researching, creating, transforming and publishing digital content with AI support.' },
+      secureflow: { name: 'SecureFlow', description: 'Secure information flow from the original file to data ready to use.' },
     },
   },
   evidence: {
     title: 'Operational evidence',
     metrics: [
-      { value: '05', label: 'active lines', detail: 'Tax, automation, energy, real estate and knowledge.' },
+      { value: '06', label: 'active lines', detail: 'Tax, automation, energy, real estate, knowledge and secure information flow.' },
       { value: '11', label: 'connected products', detail: 'A proprietary catalogue sharing standards, data and security.' },
       { value: '01', label: 'control system', detail: 'One operating model to prioritize, run and scale every product.' },
     ],
@@ -64,6 +65,10 @@ const en: Dictionary = {
       'anclora-command-center': { description: 'Central cockpit to visualize operations, products and priorities.', status: 'internal ecosystem' },
       'anclora-synergi': { description: 'Commercial intelligence and automation applied to the real estate environment.', status: 'internal ecosystem' },
       'anclora-data-lab': { description: 'Data analysis and applied intelligence for strategic decisions.', status: 'internal ecosystem' },
+      filestudio: { description: 'Private file conversion, processing and preparation.', status: 'internal ecosystem' },
+      purgedoc: { description: 'Detection and verifiable removal of sensitive information.', status: 'internal ecosystem' },
+      tableextract: { description: 'Extraction of tables and structured data from complex documents.', status: 'internal ecosystem' },
+      cleansheet: { description: 'Cleaning, transformation and integration of data into business systems.', status: 'internal ecosystem' },
     },
   },
   infrastructure: {

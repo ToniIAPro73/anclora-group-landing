@@ -32,7 +32,7 @@ const ca: Dictionary = {
     instrumentCaption: "Cada marca de l'anell representa una línia de negoci activa de l'ecosistema Anclora.",
   },
   ecosystem: {
-    title: 'Cinc línies d\'operació. Un sol sistema de control.',
+    title: 'Sis línies d\'operació. Un sol sistema de control.',
     text: 'Anclora Group combina producte, automatització, dades i intel·ligència aplicada per construir eines pràctiques en àrees on la claredat operativa marca la diferència.',
     lines: {
       'fiscal-compliance': { name: 'Fiscalitat i Compliment', description: 'Fiscalitat, facturació i compliment.' },
@@ -40,12 +40,13 @@ const ca: Dictionary = {
       'energy-efficiency': { name: 'Energia i Eficiència', description: 'Eficiència energètica i anàlisi.' },
       'real-estate-intelligence': { name: 'Intel·ligència Immobiliària', description: 'Intel·ligència immobiliària i actius premium.' },
       'publishing-digital-knowledge': { name: 'Contingut i IA', description: 'Branca editorial dedicada a investigar, crear, transformar i publicar contingut digital amb el suport de la intel·ligència artificial.' },
+      secureflow: { name: 'SecureFlow', description: 'Flux segur d’informació des de l’arxiu original fins a la dada llesta per utilitzar.' },
     },
   },
   evidence: {
     title: 'Evidència operativa',
     metrics: [
-      { value: '05', label: 'línies actives', detail: 'Fiscalitat, automatització, energia, immobiliari i coneixement.' },
+      { value: '06', label: 'línies actives', detail: 'Fiscalitat, automatització, energia, immobiliari, coneixement i flux segur.' },
       { value: '11', label: 'productes connectats', detail: 'Un catàleg propi que comparteix criteris, dades i seguretat.' },
       { value: '01', label: 'sistema de control', detail: 'Una manera comuna d’operar, prioritzar i escalar cada producte.' },
     ],
@@ -65,6 +66,10 @@ const ca: Dictionary = {
       'anclora-command-center': { description: 'Cabina central per visualitzar operacions, productes i prioritats.', status: 'ecosistema intern' },
       'anclora-synergi': { description: "Intel·ligència comercial i automatització aplicada a l'entorn immobiliari.", status: 'ecosistema intern' },
       'anclora-data-lab': { description: 'Anàlisi de dades i intel·ligència aplicada per a decisions estratègiques.', status: 'ecosistema intern' },
+      filestudio: { description: 'Conversió, tractament i preparació privada d’arxius.', status: 'ecosistema intern' },
+      purgedoc: { description: 'Detecció i eliminació verificable d’informació sensible.', status: 'ecosistema intern' },
+      tableextract: { description: 'Extracció de taules i dades estructurades des de documents complexos.', status: 'ecosistema intern' },
+      cleansheet: { description: 'Neteja, transformació i integració de dades en sistemes de negoci.', status: 'ecosistema intern' },
     },
   },
   infrastructure: {

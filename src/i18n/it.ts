@@ -32,7 +32,7 @@ const it: Dictionary = {
     instrumentCaption: "Ogni tacca dell'anello rappresenta una linea di business attiva dell'ecosistema Anclora.",
   },
   ecosystem: {
-    title: 'Cinque linee operative. Un unico sistema di controllo.',
+    title: 'Sei linee operative. Un unico sistema di controllo.',
     text: "Anclora Group unisce prodotto, automazione, dati e intelligenza applicata per costruire strumenti pratici dove la chiarezza operativa fa la differenza.",
     lines: {
       'fiscal-compliance': { name: 'Fiscalità e Conformità', description: 'Fiscalità, fatturazione e conformità.' },
@@ -40,12 +40,13 @@ const it: Dictionary = {
       'energy-efficiency': { name: 'Energia ed Efficienza', description: 'Efficienza energetica e analisi.' },
       'real-estate-intelligence': { name: 'Intelligence Immobiliare', description: 'Intelligence immobiliare e asset premium.' },
       'publishing-digital-knowledge': { name: 'Contenuti e IA', description: 'Ramo editoriale dedicato a ricercare, creare, trasformare e pubblicare contenuti digitali con il supporto dell’intelligenza artificiale.' },
+      secureflow: { name: 'SecureFlow', description: 'Flusso sicuro delle informazioni dal file originale ai dati pronti all’uso.' },
     },
   },
   evidence: {
     title: 'Evidenza operativa',
     metrics: [
-      { value: '05', label: 'linee attive', detail: 'Fiscalità, automazione, energia, immobiliare e conoscenza.' },
+      { value: '06', label: 'linee attive', detail: 'Fiscalità, automazione, energia, immobiliare, conoscenza e flusso sicuro.' },
       { value: '11', label: 'prodotti connessi', detail: 'Un catalogo proprietario che condivide criteri, dati e sicurezza.' },
       { value: '01', label: 'sistema di controllo', detail: 'Un modello comune per prioritizzare, operare e scalare ogni prodotto.' },
     ],
@@ -65,6 +66,10 @@ const it: Dictionary = {
       'anclora-command-center': { description: 'Cabina centrale per visualizzare operazioni, prodotti e priorità.', status: 'ecosistema interno' },
       'anclora-synergi': { description: 'Intelligence commerciale e automazione applicata al settore immobiliare.', status: 'ecosistema interno' },
       'anclora-data-lab': { description: 'Analisi dei dati e intelligence applicata alle decisioni strategiche.', status: 'ecosistema interno' },
+      filestudio: { description: 'Conversione, trattamento e preparazione privata dei file.', status: 'ecosistema interno' },
+      purgedoc: { description: 'Rilevamento e rimozione verificabile delle informazioni sensibili.', status: 'ecosistema interno' },
+      tableextract: { description: 'Estrazione di tabelle e dati strutturati da documenti complessi.', status: 'ecosistema interno' },
+      cleansheet: { description: 'Pulizia, trasformazione e integrazione dei dati nei sistemi aziendali.', status: 'ecosistema interno' },
     },
   },
   infrastructure: {

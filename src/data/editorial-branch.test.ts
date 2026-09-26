@@ -39,8 +39,8 @@ describe('editorial branch (Content & AI)', () => {
     expect(insights?.description.toLowerCase()).toContain('sello editorial')
   })
 
-  it('keeps FileStudio out of the editorial branch (canonical classification preserved)', () => {
-    const filestudio = products.find((p) => p.id === 'anclora-filestudio')
-    expect(filestudio).toBeUndefined() // not present in the landing catalog at all today
+  it('keeps FileStudio out of the editorial branch', () => {
+    const filestudio = products.find((p) => p.id === 'filestudio')
+    expect(filestudio?.lineId).not.toBe('publishing-digital-knowledge')
   })
 })

@@ -28,6 +28,13 @@ describe('SecureFlow ecosystem contract', () => {
     }
   })
 
+  it('exposes the complete 15-product catalogue and keeps Tier 2 icon-free', () => {
+    expect(products).toHaveLength(15)
+    expect(products.filter((product) => product.tier === 1)).toHaveLength(11)
+    expect(products.filter((product) => product.tier === 2)).toHaveLength(4)
+    expect(products.filter((product) => product.tier === 2).every((product) => !product.logoSrc)).toBe(true)
+  })
+
   it('uses the canonical essential descriptions', () => {
     const descriptions = Object.fromEntries(
       products.filter((product) => product.lineId === 'secureflow').map((product) => [product.id, product.description]),

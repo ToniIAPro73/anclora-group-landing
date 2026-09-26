@@ -47,7 +47,7 @@ const fr: Dictionary = {
     title: 'Preuve opérationnelle',
     metrics: [
       { value: '06', label: 'lignes actives', detail: 'Fiscalité, automatisation, énergie, immobilier, connaissance et flux sécurisé.' },
-      { value: '11', label: 'produits connectés', detail: 'Un catalogue propriétaire qui partage standards, données et sécurité.' },
+      { value: '15', label: 'produits catalogués', detail: '11 produits de niveau 1 et 4 modules de niveau 2, reliés par le même système de données, de sécurité et d’exploitation.' },
       { value: '01', label: 'système de contrôle', detail: 'Un modèle commun pour prioriser, opérer et faire évoluer chaque produit.' },
     ],
   },

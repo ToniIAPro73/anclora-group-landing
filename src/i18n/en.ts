@@ -46,7 +46,7 @@ const en: Dictionary = {
     title: 'Operational evidence',
     metrics: [
       { value: '06', label: 'active lines', detail: 'Tax, automation, energy, real estate, knowledge and secure information flow.' },
-      { value: '11', label: 'connected products', detail: 'A proprietary catalogue sharing standards, data and security.' },
+      { value: '15', label: 'catalogued products', detail: '11 Tier 1 products and 4 Tier 2 modules, connected by the same data, security and operating system.' },
       { value: '01', label: 'control system', detail: 'One operating model to prioritize, run and scale every product.' },
     ],
   },

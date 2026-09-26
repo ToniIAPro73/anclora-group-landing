@@ -56,7 +56,6 @@ Regla práctica:
 
 Aplicaciones internas:
 - `anclora-advisor-ai`
-- `anclora-filestudio`
 - `anclora-nexus`
 - `anclora-content-generator-ai`
 - `anclora-fiscal` *(añadida 2026-08, verificada contra código real)*
@@ -64,13 +63,23 @@ Aplicaciones internas:
 - `anclora-linguo-cam` *(incorporada 2026-08-02 al ecosistema gobernado — antes clasificada como "Independent Product"; decisión explícita del cliente, verificada contra código real)*
 
 Aplicaciones MicroSaaS:
-- `anclora-tableextractor`
-- `anclora-clearsheet`
-- `anclora-purgedoc`
+- `anclora-tableextractor` *(familia comercial Anclora SecureFlow, categoría Extract)*
+- `anclora-clearsheet` *(familia comercial Anclora SecureFlow, categoría Automate)*
+- `anclora-purgedoc` *(familia comercial Anclora SecureFlow, categoría Protect)*
+- `anclora-filestudio` *(reclasificada 2026-09-26 desde "Interna" a MicroSaaS; primer producto — categoría Prepare — de la familia comercial Anclora SecureFlow; vendible individualmente o en packs de 2-4 apps; catálogo comercial vivo en `anclora-secureflow/src/data/products.ts` y `plans.ts`)*
 
 El tier `MicroSaaS` agrupa utilidades SaaS enfocadas y recurrentes con flujos compactos,
 feedback de procesamiento explícito y resultados verificables. Consume el tier ejecutable
 `tier-microsaas` de `anclora-design-system`; no crea una familia paralela de componentes.
+
+Familia comercial `Anclora SecureFlow` *(añadida 2026-09-26)*: agrupación de marketing/venta dentro
+del tier `MicroSaaS` para `anclora-filestudio` (Prepare), `anclora-purgedoc` (Protect),
+`anclora-tableextractor` (Extract) y `anclora-clearsheet` (Automate). No es un tier de gobernanza
+nuevo — las cuatro apps siguen gobernadas como `MicroSaaS` en este contrato y en
+`00-governance/registry/ecosystem-repos.json`; `SecureFlow` es la etiqueta comercial bajo la que se
+venden individualmente o en packs de 2/3/4 aplicaciones. El catálogo de venta y la whitelist de
+acceso viven en el repo `anclora-secureflow` (`src/data/products.ts`, `src/data/plans.ts`,
+`src/services/accessRequestService.ts`), no en este repo.
 
 Aplicaciones premium:
 - `anclora-impulso`
@@ -246,7 +255,6 @@ Al crear una app nueva:
 | Aplicación | Grupo | Idiomas objetivo | Tema objetivo | Contratos mínimos |
 | --- | --- | --- | --- | --- |
 | `anclora-advisor-ai` | Interna | `es`, `en` | `dark/light/system` | Base + interno |
-| `anclora-filestudio` | Interna | `es`, `en` | Pendiente de auditoría por superficie | Base + interno |
 | `anclora-nexus` | Interna | `es`, `en`, `de`, `ru` | `dark` operativo | Base + interno |
 | `anclora-content-generator-ai` | Interna | `es`, `en` | `dark/light/system` | Base + interno |
 | `anclora-impulso` | Premium | `es`, `en` | `dark/light` | Base + premium |
@@ -260,9 +268,10 @@ Al crear una app nueva:
 | `anclora-fiscal` | Interna | Pendiente de auditoría de locales | `dark` confirmado (navy `#070C13` + dorado `#D7A957`), `light` no verificado | Base + interno |
 | `anclora-visionflow` | Interna | Pendiente de auditoría de locales | `dark/light` confirmado — ambos modos definidos en el repo real (`.dark { --avf-accent }` y `:root` claro) | Base + interno |
 | `anclora-linguo-cam` | Interna | Pendiente de auditoría de locales | `dark/light` confirmado — ambos modos definidos en `index.css` real; acento lima `#59B635` asignado 2026-08-02 al incorporarla (resuelve colisión exacta con `advisor-ai`, ver `ANCLORA_BRANDING_MASTER_CONTRACT.md`) | Base + interno |
-| `anclora-tableextractor` | MicroSaaS | `es`, `en` | `dark/light/system` documentado; acento cyan `#38BDF8` | Base + microsaas |
-| `anclora-clearsheet` | MicroSaaS | `es`, `en` | `dark/light` documentado; acento azul `#2563EB` | Base + microsaas |
-| `anclora-purgedoc` | MicroSaaS | `es`, `en` | `dark/light/system` documentado; acento azul `#3B82F6` | Base + microsaas |
+| `anclora-tableextractor` | MicroSaaS (SecureFlow · Extract) | `es`, `en` | `dark/light/system` documentado; acento cyan `#38BDF8` | Base + microsaas |
+| `anclora-clearsheet` | MicroSaaS (SecureFlow · Automate) | `es`, `en` | `dark/light` documentado; acento azul `#2563EB` | Base + microsaas |
+| `anclora-purgedoc` | MicroSaaS (SecureFlow · Protect) | `es`, `en` | `dark/light/system` documentado; acento azul `#3B82F6` | Base + microsaas |
+| `anclora-filestudio` | MicroSaaS (SecureFlow · Prepare) | `es`, `en` | `dark` confirmado — acento teal `#14b8a6` (`src/lib/filestudio-brand.ts`); `light` no verificado en esta sesión | Base + microsaas |
 | `anclora-guesthub` | Premium | Pendiente de auditoría de locales | `dark` confirmado (navy `#070A12` + dorado apagado `#BFA46A`), `light` no verificado en esta sesión | Base + premium |
 | `anclora-groundsync` | Premium | Pendiente de auditoría de locales | `dark/light` confirmado — ambos modos definidos en `src/index.css` real (`:root` dark + `:root[data-theme='light']`); accent `#afd2fa`/`#2f6fd9` | Base + premium |
 | `anclora-portfolio` | Portfolio / showcase | `es`, `en` | tema editorial único o dual diseñado | Base + portfolio |

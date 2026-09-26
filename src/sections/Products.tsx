@@ -24,7 +24,6 @@ export default function Products() {
                 product={product}
                 ctaLabel={t.products.ctaView}
                 variant="cell"
-                showLogo={product.tier === 1}
               />
             ))}
           </div>

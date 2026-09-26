@@ -5,13 +5,12 @@ import { useLocale } from '../i18n/useLocale'
 interface ProductCardProps {
   product: Product
   ctaLabel?: string
-  showLogo?: boolean
   /** 'card' (panel independiente) o 'cell' (celda plana dentro del chasis
       de productos, sin borde ni sombra propios). */
   variant?: 'card' | 'cell'
 }
 
-export default function ProductCard({ product, ctaLabel, variant = 'card', showLogo = true }: ProductCardProps) {
+export default function ProductCard({ product, ctaLabel, variant = 'card' }: ProductCardProps) {
   const { t } = useLocale()
   const line = ecosystemLines.find((candidate) => candidate.id === product.lineId)
   const lineCopy = line ? t.ecosystem.lines[line.id] : undefined
@@ -31,7 +30,6 @@ export default function ProductCard({ product, ctaLabel, variant = 'card', showL
         )}
       </div>
       <div className="product-card__body">
-        {showLogo && product.logoSrc && <img className="product-card__logo" src={product.logoSrc} alt="" loading="lazy" />}
         <h3>{product.name}</h3>
         <p>{description}</p>
       </div>

@@ -34,6 +34,16 @@ describe('ProductCard', () => {
     expect(screen.queryByRole('link')).not.toBeInTheDocument()
   })
 
+  it('keeps product cards text-only even when catalogue data has a logo', () => {
+    render(
+      <LocaleProvider>
+        <ProductCard product={{ ...product, logoSrc: '/catalogue-logo.png' }} />
+      </LocaleProvider>,
+    )
+
+    expect(screen.queryByRole('img')).not.toBeInTheDocument()
+  })
+
   it('does not render a status when the product has none', () => {
     render(<LocaleProvider><ProductCard product={{ ...product, status: undefined }} /></LocaleProvider>)
 

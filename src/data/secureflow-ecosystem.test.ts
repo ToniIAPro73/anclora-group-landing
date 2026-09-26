@@ -24,7 +24,7 @@ describe('SecureFlow ecosystem contract', () => {
     expect(new Set(products.map((product) => product.id)).size).toBe(products.length)
     expect(secureFlowProducts).toHaveLength(4)
     for (const product of secureFlowProducts) {
-      expect(product.logoSrc).toMatch(/^\/assets\/logo\/anclora-/)
+      expect(product.logoSrc).toMatch(/anclora-(filestudio|purgedoc|tableextractor|clearsheet)/)
     }
   })
 

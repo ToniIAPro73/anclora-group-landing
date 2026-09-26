@@ -47,7 +47,7 @@ const ca: Dictionary = {
     title: 'Evidència operativa',
     metrics: [
       { value: '06', label: 'línies actives', detail: 'Fiscalitat, automatització, energia, immobiliari, coneixement i flux segur.' },
-      { value: '11', label: 'productes connectats', detail: 'Un catàleg propi que comparteix criteris, dades i seguretat.' },
+      { value: '15', label: 'productes catalogats', detail: '11 productes de Tier 1 i 4 mòduls de Tier 2, connectats pel mateix sistema de dades, seguretat i operació.' },
       { value: '01', label: 'sistema de control', detail: 'Una manera comuna d’operar, prioritzar i escalar cada producte.' },
     ],
   },

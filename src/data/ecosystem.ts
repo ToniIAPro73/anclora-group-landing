@@ -39,4 +39,10 @@ export const ecosystemLines: EcosystemLine[] = [
     description: 'Rama editorial dedicada a investigar, crear, transformar y publicar contenido digital con apoyo de inteligencia artificial.',
     products: ['Anclora Insights ADN', 'Anclora Content Generator AI', 'Anclora Talent'],
   },
+  {
+    id: 'secureflow',
+    name: 'SecureFlow',
+    description: 'Flujo seguro de información desde el archivo original hasta el dato listo para usar.',
+    products: ['Anclora FileStudio', 'Anclora PurgeDoc', 'Anclora TableExtract', 'Anclora CleanSheet'],
+  },
 ]

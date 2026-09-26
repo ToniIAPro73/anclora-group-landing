@@ -25,7 +25,6 @@ describe('Ecosystem canonical target', () => {
     const ecosystemTargets = document.querySelectorAll('#ecosystem')
     expect(ecosystemTargets).toHaveLength(1)
     expect(ecosystemTargets[0]).toContainElement(screen.getByText(/líneas activas/i))
-    expect(ecosystemTargets[0]).not.toContainElement(screen.getByText(/cinco líneas de operación/i))
+    expect(ecosystemTargets[0]).not.toContainElement(screen.getByText(/seis líneas de operación/i))
   })
 })
-

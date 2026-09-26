@@ -30,6 +30,7 @@ export default function ProductCard({ product, ctaLabel, variant = 'card' }: Pro
         )}
       </div>
       <div className="product-card__body">
+        {product.logoSrc && <img className="product-card__logo" src={product.logoSrc} alt="" loading="lazy" />}
         <h3>{product.name}</h3>
         <p>{description}</p>
       </div>

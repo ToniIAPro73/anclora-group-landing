@@ -11,6 +11,7 @@ export interface Product {
   description: string
   tier: ProductTier
   status?: ProductStatus
+  logoSrc?: string
   /** Landing propia del producto, cuando existe destino confirmado. Sin URL confirmada
       en el repo, el CTA cae a #contact (ver Known gaps del informe de rediseño). */
   productUrl?: string
@@ -21,6 +22,42 @@ export interface Product {
 // src/i18n/*.ts (products.items).
 // Nivel 3 deliberadamente ausente: no debe mostrarse bajo ninguna circunstancia (sección 10).
 export const products: Product[] = [
+  {
+    id: 'filestudio',
+    name: 'Anclora FileStudio',
+    lineId: 'secureflow',
+    description: 'Conversión, tratamiento y preparación privada de archivos.',
+    tier: 1,
+    status: 'ecosistema interno',
+    logoSrc: '/assets/logo/anclora-filestudio.png',
+  },
+  {
+    id: 'purgedoc',
+    name: 'Anclora PurgeDoc',
+    lineId: 'secureflow',
+    description: 'Detección y eliminación verificable de información sensible.',
+    tier: 1,
+    status: 'ecosistema interno',
+    logoSrc: '/assets/logo/anclora-purgedoc.png',
+  },
+  {
+    id: 'tableextract',
+    name: 'Anclora TableExtract',
+    lineId: 'secureflow',
+    description: 'Extracción de tablas y datos estructurados desde documentos complejos.',
+    tier: 1,
+    status: 'ecosistema interno',
+    logoSrc: '/assets/logo/anclora-tableextractor.png',
+  },
+  {
+    id: 'cleansheet',
+    name: 'Anclora CleanSheet',
+    lineId: 'secureflow',
+    description: 'Limpieza, transformación e integración de datos en sistemas de negocio.',
+    tier: 1,
+    status: 'ecosistema interno',
+    logoSrc: '/assets/logo/anclora-clearsheet.png',
+  },
   {
     id: 'anclora-fiscal',
     name: 'Anclora Fiscal',

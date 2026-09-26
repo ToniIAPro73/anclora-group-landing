@@ -1,4 +1,8 @@
 import { getTalentUrl } from '../lib/urls'
+import filestudioLogo from '../assets/logo/anclora-filestudio.png'
+import purgedocLogo from '../assets/logo/anclora-purgedoc.png'
+import tableextractLogo from '../assets/logo/anclora-tableextractor.png'
+import cleansheetLogo from '../assets/logo/anclora-clearsheet.png'
 
 export type ProductTier = 1 | 2
 
@@ -29,7 +33,7 @@ export const products: Product[] = [
     description: 'Conversión, tratamiento y preparación privada de archivos.',
     tier: 1,
     status: 'ecosistema interno',
-    logoSrc: '/assets/logo/anclora-filestudio.png',
+    logoSrc: filestudioLogo,
   },
   {
     id: 'purgedoc',
@@ -38,7 +42,7 @@ export const products: Product[] = [
     description: 'Detección y eliminación verificable de información sensible.',
     tier: 1,
     status: 'ecosistema interno',
-    logoSrc: '/assets/logo/anclora-purgedoc.png',
+    logoSrc: purgedocLogo,
   },
   {
     id: 'tableextract',
@@ -47,7 +51,7 @@ export const products: Product[] = [
     description: 'Extracción de tablas y datos estructurados desde documentos complejos.',
     tier: 1,
     status: 'ecosistema interno',
-    logoSrc: '/assets/logo/anclora-tableextractor.png',
+    logoSrc: tableextractLogo,
   },
   {
     id: 'cleansheet',
@@ -56,7 +60,7 @@ export const products: Product[] = [
     description: 'Limpieza, transformación e integración de datos en sistemas de negocio.',
     tier: 1,
     status: 'ecosistema interno',
-    logoSrc: '/assets/logo/anclora-clearsheet.png',
+    logoSrc: cleansheetLogo,
   },
   {
     id: 'anclora-fiscal',

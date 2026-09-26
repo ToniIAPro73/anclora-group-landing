@@ -47,7 +47,7 @@ const de: Dictionary = {
     title: 'Operative Evidenz',
     metrics: [
       { value: '06', label: 'aktive Linien', detail: 'Steuern, Automatisierung, Energie, Immobilien, Wissen und sicherer Informationsfluss.' },
-      { value: '11', label: 'verbundene Produkte', detail: 'Ein eigener Katalog mit gemeinsamen Standards, Daten und Sicherheit.' },
+      { value: '15', label: 'katalogisierte Produkte', detail: '11 Produkte der Stufe 1 und 4 Module der Stufe 2, verbunden durch dasselbe Daten-, Sicherheits- und Betriebssystem.' },
       { value: '01', label: 'Kontrollsystem', detail: 'Ein gemeinsames Modell, um jedes Produkt zu priorisieren, zu betreiben und zu skalieren.' },
     ],
   },

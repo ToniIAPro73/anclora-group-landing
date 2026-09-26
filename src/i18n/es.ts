@@ -47,7 +47,7 @@ const es: Dictionary = {
     title: 'Evidencia operativa',
     metrics: [
       { value: '06', label: 'líneas activas', detail: 'Fiscalidad, automatización, energía, inmobiliario, conocimiento y flujo seguro.' },
-      { value: '11', label: 'productos conectados', detail: 'Un catálogo propio que comparte criterios, datos y seguridad.' },
+      { value: '15', label: 'productos propios catalogados', detail: '11 productos de Tier 1 y 4 módulos de Tier 2, todos conectados por el mismo sistema de datos, seguridad y operación.' },
       { value: '01', label: 'sistema de control', detail: 'Una forma común de operar, priorizar y escalar cada producto.' },
     ],
   },

@@ -18,20 +18,28 @@ FRAMEWORK=Vite + React
 
 ## 2. Runtime Topology
 
-FRONTEND_PROVIDER=Vercel
+FRONTEND_PROVIDER=Cloudflare Workers + Static Assets
 BACKEND_PROVIDER=NONE
-PRODUCTION_DOMAIN=anclora-group-landing-cqqcgzamg-pmi140979-6354s-projects.vercel.app
-PRODUCTION_DEPLOYMENT_PROVIDER=Vercel (Project: anclora-group-landing)
+PRODUCTION_DOMAIN=group-landing.anclora.com
+PRODUCTION_DEPLOYMENT_PROVIDER=Cloudflare Worker: anclora-group-landing
+PRODUCTION_PROVIDER_URL=https://anclora-group-landing.anclora.workers.dev/
+DEVELOPMENT_DEPLOYMENT_PROVIDER=Cloudflare Worker: anclora-group-landing-development
+STAGING_DEPLOYMENT_PROVIDER=Cloudflare Worker: anclora-group-landing-staging
+DEPLOYMENT_ENGINE=GitHub Actions + Wrangler 4.147.0
+PRODUCTION_BRANCH=production
+MAIN_DEPLOYS=false
+VERCEL_ROLLBACK_PRESERVED=true
+CUSTOM_DOMAIN_STATUS=BLOCKED_PENDING_ZONE_ACTIVATION
 
 ```text
 Browser / Client
    ↓
-Vercel Edge Network (Static Production CDN / Frontend)
+Cloudflare Workers + Static Assets (Production Worker)
    ├── Framework: Vite + React
-   └── Production Domain: https://anclora-group-landing-cqqcgzamg-pmi140979-6354s-projects.vercel.app
+   └── Provider URL: https://anclora-group-landing.anclora.workers.dev/
 ```
 
-This repository deploys a production-grade static showcase/landing on Vercel.
+This repository deploys a production-grade static showcase/landing on Cloudflare Workers. The canonical custom domain remains on Vercel until the Cloudflare zone activation gate is satisfied.
 It does not maintain an independent stateful backend or database.
 
 ## 3. Production Database Contract
@@ -51,7 +59,7 @@ MIGRATION_RUNNER=NONE
 
 ## 5. Storage Contract
 
-STORAGE_PROVIDER=Vercel Edge CDN
+STORAGE_PROVIDER=Cloudflare Workers Static Assets
 STORAGE_SCOPE=production
 
 Assets are bundled and distributed via Vercel Edge Network.
@@ -65,7 +73,7 @@ Publicly accessible showcase / landing; no authentication required.
 
 ## 7. External Services & Integrations
 
-EXTERNAL_SERVICES=Vercel Deployment Pipeline, Anclora Design System assets
+EXTERNAL_SERVICES=Cloudflare Deployment Pipeline, Anclora Design System assets
 
 ## 8. Environment Files & Loading Order
 

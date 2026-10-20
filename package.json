@@ -7,7 +7,7 @@
     "dev": "node -e \"const p='../anclora-infrastructure/scripts/free-port.mjs';if(require('fs').existsSync(p)){try{require('child_process').execFileSync(process.execPath,[p],{stdio:'inherit'})}catch(e){process.exit(e.status||1)}}\" && vite --port 3006 --strictPort",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
+    "preview": "node -e \"const p='../anclora-infrastructure/scripts/free-port.mjs';if(require('fs').existsSync(p)){try{require('child_process').execFileSync(process.execPath,[p,'--port','4173'],{stdio:'inherit'})}catch(e){process.exit(e.status||1)}}\" && vite preview",
     "test": "vitest run"
   },
   "dependencies": {

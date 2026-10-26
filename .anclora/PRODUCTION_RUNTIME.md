@@ -62,7 +62,7 @@ manifest override generic agent defaults or home-directory agent policies.
 
 APPLICATION_NAME=Anclora Group Landing
 REPOSITORY=anclora-group-landing
-APPLICATION_TYPE=STATIC_FRONTEND
+APPLICATION_TYPE=frontend
 FRAMEWORK=Vite + React
 
 ## 2. Runtime Topology

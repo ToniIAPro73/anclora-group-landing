@@ -88,7 +88,6 @@ Aplicaciones ultra premium:
 - `anclora-private-estates`
 - `anclora-portfolio`
 - `anclora-azure-bay-landing`
-- `anclora-playa-viva-uniestate`
 
 Nota:
 - `anclora-group` mantiene autoridad matriz y criterios globales, pero no es target normal de propagación de este contrato transversal.

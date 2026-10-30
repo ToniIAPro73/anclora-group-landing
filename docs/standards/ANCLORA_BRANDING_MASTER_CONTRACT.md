@@ -55,7 +55,6 @@ Este contrato de branding no sustituye el contrato de propiedad intelectual y ma
 - `anclora-visionflow` *(añadido 2026-08, verificado)*
 - `anclora-linguo-cam` *(añadido 2026-08-02 — antes "Independent Product", incorporado por decisión del cliente; acento lima `#59B635` asignado en la incorporación para resolver la colisión exacta de hue con `anclora-advisor-ai`)*
 - `anclora-impulso`
-- `anclora-command-center`
 - `anclora-synergi`
 - `anclora-data-lab`
 - `anclora-energyscan`
@@ -108,15 +107,15 @@ Al modificar la identidad de una app existente:
 | Categoría | Apps | Borde de icono | Tipografía | Descripción |
 |-----------|------|---------------|-----------|-------------|
 | Entidad Matriz | `anclora-group` | Plata monocromática | Georgia, serif | Portal corporativo y entidad matriz del ecosistema. Identidad exclusiva fuera de grupos. |
-| Interna | `anclora-advisor-ai`, `anclora-nexus`, `anclora-content-generator-ai`, `anclora-filestudio`, `anclora-fiscal`, `anclora-visionflow`, `anclora-linguo-cam` | Plata cromada | Inter | Herramientas operativas internas. |
-| Premium | `anclora-impulso`, `anclora-talent` *(pausado)*, `anclora-data-lab`, `anclora-energyscan`, `anclora-synergi`, `anclora-command-center`, `anclora-guesthub`, `anclora-groundsync` | Cobre rosado | DM Sans | Productos de valor añadido. |
-| MicroSaaS | `anclora-tableextractor`, `anclora-clearsheet`, `anclora-purgedoc` | Cian (logo SaaS) | Por producto | Utilidades SaaS enfocadas. *(fila añadida 2026-09-25, CHG-0014)* |
+| Interna | `anclora-advisor-ai`, `anclora-nexus`, `anclora-content-generator-ai`, `anclora-filestudio`, `anclora-fiscal`, `anclora-visionflow`, `anclora-linguo-cam`, `anclora-command-center` | Teal de tier Internal | Inter | Herramientas operativas internas. Command Center añadido por CHG-0019. |
+| Premium | `anclora-impulso`, `anclora-talent` *(pausado)*, `anclora-data-lab`, `anclora-energyscan`, `anclora-synergi`, `anclora-guesthub`, `anclora-groundsync` | Cobre rosado | DM Sans | Productos de valor añadido. |
+| MicroSaaS | `anclora-tableextractor`, `anclora-cleansheet`, `anclora-purgedoc` | Cian (logo SaaS) | Por producto | Utilidades SaaS enfocadas. *(fila añadida 2026-09-25, CHG-0014)* |
 | Ultra Premium | `anclora-private-estates`, `anclora-private-estates-landing` | Oro pulido | Cardo + Inter + Fraunces | Marca de lujo inmobiliario. |
-| Portfolio | `anclora-portfolio`, `anclora-azure-bay-landing-page`, `anclora-playa-viva-uniestate`, `anclora-portfolio-showcase`, `anclora-fiscal-showcase` | Logo: Oro Ultra Premium en `anclora-portfolio`, `anclora-azure-bay-landing` y `anclora-portfolio-showcase`; las showcases usan el logo de su app de origen (`anclora-fiscal-showcase` → Internal) *(CHG-0014)*. Tema: por proyecto | Por proyecto | Fuera de alcance de este contrato — ver `ANCLORA_PORTFOLIO_SHOWCASE_CONTRACT.md`. |
-| Portfolio (excepción — hereda tema de producto real) | `anclora-energyscan-showcase`, `anclora-syncxml-showcase`, `anclora-guesthub-showcase`, `anclora-shiftimport-showcase`, `anclora-advisor-ai-showcase` *(las tres últimas registradas 2026-09-25, CHG-0015)* | Cobre rosado (logo Premium heredado de su app de origen) | DM Sans (heredado) | No siguen el tema editorial genérico — son el propio producto en fase MVP/pre-MVP mostrándose, heredan el tema completo de su app madre. |
+| Portfolio | `anclora-portfolio`, `anclora-azure-bay-landing-page`, `anclora-portfolio-showcase`, `anclora-fiscal-showcase` | Logo: Oro Ultra Premium en `anclora-portfolio`, `anclora-azure-bay-landing` y `anclora-portfolio-showcase`; las showcases usan el logo de su app de origen (`anclora-fiscal-showcase` → Internal) *(CHG-0014)*. Tema: por proyecto | Por proyecto | Fuera de alcance de este contrato — ver `ANCLORA_PORTFOLIO_SHOWCASE_CONTRACT.md`. |
+| Portfolio (excepción — hereda tema de producto real) | `anclora-energyscan-showcase`, `anclora-guesthub-showcase`, `anclora-shiftimport-showcase`, `anclora-advisor-ai-showcase` *(las tres últimas registradas 2026-09-25, CHG-0015)* | Cobre rosado (logo Premium heredado de su app de origen) | DM Sans (heredado) | No siguen el tema editorial genérico — son el propio producto en fase MVP/pre-MVP mostrándose, heredan el tema completo de su app madre. |
 | Portfolio (excepción — brand book propio) | `anclora-group-landing` | N/A — identidad navy/azul/violeta propia | DM Sans + JetBrains Mono | Única app portfolio que implementa el brand book completo en vez del tema editorial genérico. Se gobierna con este contrato maestro. |
 
-> **Actualización 2026-09-25 (CHG-0014) — logo común por tier.** Desde esta fecha todas las apps de un tier comparten un único logo; la columna "Borde de icono" queda sustituida por el tier de logo: Entidad Matriz → plata · SaaS (`anclora-tableextractor`, `anclora-clearsheet`, `anclora-purgedoc`) → cian · Ultra Premium (`anclora-private-estates`, `anclora-private-estates-landing`, `anclora-portfolio`, `anclora-azure-bay-landing`, `anclora-portfolio-showcase`) → oro · Premium → cobre rosado · Internal → teal. Las showcases usan el logo de su aplicación de origen. Especificación en `10-group/brand/ANCLORA_BRANDING_ICON_SYSTEM.md`.
+> **Actualización 2026-09-25 (CHG-0014) — logo común por tier.** Desde esta fecha todas las apps de un tier comparten un único logo; la columna "Borde de icono" queda sustituida por el tier de logo: Entidad Matriz → plata · SaaS (`anclora-tableextractor`, `anclora-cleansheet`, `anclora-purgedoc`) → cian · Ultra Premium (`anclora-private-estates`, `anclora-private-estates-landing`, `anclora-portfolio`, `anclora-azure-bay-landing`, `anclora-portfolio-showcase`) → oro · Premium → cobre rosado · Internal → teal. Las showcases usan el logo de su aplicación de origen. Especificación en `10-group/brand/ANCLORA_BRANDING_ICON_SYSTEM.md`.
 
 ## Regla de escalera visual
 
@@ -147,7 +146,7 @@ PLATA MONO (Entidad Matriz) → PLATA + color (internas) → COBRE (premium) →
 | `anclora-energyscan` | `#00DC82` verde energía | 155° | Cobre |
 | `anclora-talent` | `#4A9FD8` azul cielo *(pausado, fuera de alcance activo)* | 205° | Cobre |
 | `anclora-synergi` | `#8C5AB4` púrpura | 280° | Cobre |
-| `anclora-command-center` | `#6C63FF` violeta premium + `#5FA8FF` azul luminoso | 245° | Azul/violeta |
+| `anclora-command-center` | `#6C63FF` violeta funcional + `#5FA8FF` azul luminoso | 245° | Teal de tier Internal (CHG-0019); acento funcional conservado |
 | `anclora-guesthub` *(renombrado de `anclora-syncxml` 2026-08)* | `#BFA46A` dorado apagado | 41° | Cobre |
 | `anclora-groundsync` | `#6AAD49` verde musgo *(reasignado 2026-08-03 para resolver colisión de hue — icono canónico regenerado y verificado con este acento)* | 100° | Cobre |
 | `anclora-private-estates` | `#D4AF37` oro | 45° | Oro (mono) |
@@ -184,4 +183,3 @@ Una app no cumple el contrato de branding si:
 - Introduce tipografía no declarada en [[ANCLORA_BRANDING_TYPOGRAPHY]]
 - No incluye el favicon package completo según [[ANCLORA_BRANDING_FAVICON_SPEC]]
 - Usa una fuente reservada para otra categoría
-

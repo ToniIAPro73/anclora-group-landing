@@ -6,7 +6,6 @@ Definir el contrato UX/UI para repos públicos de portfolio, landings de demostr
 Ámbito:
 - `anclora-portfolio`
 - `anclora-azure-bay-landing`
-- `anclora-playa-viva-uniestate`
 
 ## Logo y tier *(CHG-0014, 2026-09-25)*
 
@@ -15,7 +14,7 @@ Definir el contrato UX/UI para repos públicos de portfolio, landings de demostr
 - **Showcases**: usan siempre el logo de su **aplicación de origen** (`derived_from` en `ecosystem-repos.json`), nunca el logo genérico de su tier ni uno propio.
   - `anclora-portfolio-showcase` → `anclora-portfolio` → Ultra Premium.
   - `anclora-energyscan-showcase` → `anclora-energyscan` → Premium.
-  - `anclora-syncxml-showcase` y `anclora-guesthub-showcase` → `anclora-guesthub` → Premium.
+  - `anclora-guesthub-showcase` → `anclora-guesthub` → Premium.
   - `anclora-shiftimport-showcase` → `anclora-shiftimport` → Premium.
   - `anclora-fiscal-showcase` → `anclora-fiscal` → Internal.
   - `anclora-advisor-ai-showcase` → `anclora-advisor-ai` → Internal.
@@ -140,11 +139,6 @@ Regla:
   - lead capture
   - bilingüe `es/en`
 - Su gramática debe ser la referencia más directa para landings inmobiliarias del grupo portfolio.
-
-### `anclora-playa-viva-uniestate`
-- Comparte familia con Azure Bay.
-- Puede tener personalidad visual propia, pero no cambiar la lógica base de CTA, navegación flotante, bilingüismo y captación.
-- Debe evitar depender de animaciones largas de hero para exponer el CTA principal.
 
 ## Gate de aceptación
 

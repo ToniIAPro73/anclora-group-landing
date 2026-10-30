@@ -36,6 +36,8 @@ Regla:
   - agrupar campos breves
   - segmentar contenido en tabs, steps o bloques
 - Si un bloque concreto es el que crece demasiado, el scroll debe vivir en ese bloque antes que en todo el modal.
+- Que el usuario pueda alcanzar el contenido o el CTA haciendo scroll no demuestra conformidad cuando una ampliación razonable o una composición más ancha/por columnas puede evitarlo.
+- En escritorio, el CTA alcanzable tras scroll sigue incumpliendo el gate si el contenido denso puede redistribuirse razonablemente en el espacio disponible.
 
 ## Layout recomendado
 - Header alineado a la izquierda con espacio para cierre superior derecho.
@@ -45,21 +47,11 @@ Regla:
 
 ## Repos a los que aplica
 
-- `anclora-advisor-ai`
-- `anclora-nexus`
-- `anclora-content-generator-ai`
-- `anclora-impulso`
-- `anclora-command-center`
-- `anclora-synergi`
-- `anclora-data-lab`
-- `anclora-talent`
-- `anclora-private-estates`
-- `anclora-portfolio`
-- `anclora-azure-bay-landing`
-- `anclora-playa-viva-uniestate`
+`MODAL_CONTRACT` aplica a toda aplicación o superficie UI gobernada por AOS que consuma el Design System, salvo una excepción explícita y justificada registrada en la autoridad canónica.
 
-Nota:
-- `anclora-group` mantiene autoridad matriz y criterios globales, pero no es target normal de propagación de este contrato transversal.
+El alcance se deriva del inventario vigente: repositorios Anclora actuales con `contracts_role=consumer` y `design_system_role=consumer` son consumidores UI sujetos al contrato. Los estados `paused` y `superseded` quedan fuera mientras se mantengan. `applies_to_repos` en el registry es la proyección sincronizada de este criterio, no una fuente de alcance independiente.
+
+`anclora-group` conserva autoridad de matriz y solo queda sujeto a este contrato como consumidor cuando su inventario lo clasifique como tal.
 
 ## Sincronización con repos consumidores
 
@@ -118,4 +110,3 @@ Un modal no está listo si:
 - Si un modal sólo funciona en un viewport, no cumple el contrato.
 - Si para resolver el problema hay que cambiar tamaño, densidad, orden de bloques o navegación interna, eso debe hacerse antes de dar el trabajo por válido.
 - Si la validación visual no puede completarse o el resultado sigue rompiéndose en alguno de los dos viewports obligatorios, el cambio no debe darse por cerrado ni subirse sin avisarlo explícitamente.
-

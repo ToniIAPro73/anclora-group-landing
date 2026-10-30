@@ -18,14 +18,14 @@ related:
 
 Definir el color, materialidad y estructura de cada icono del ecosistema Anclora. Cualquier generación o modificación de un icono debe seguir esta especificación.
 
-## Sistema de logos por tier (vigente desde 2026-09-25, CHG-0014)
+## Sistema de logos por tier (vigente desde 2026-09-25, CHG-0014; actualizado 2026-09-26, CHG-0018)
 
 > Sustituye al mapa de iconos por aplicación que figura más abajo, que se conserva como registro histórico. Cada tier tiene **un único logo** compartido por todas sus aplicaciones; la geometría (aro, grosor, tres ondas, separación, encuadre) es idéntica en los cinco y solo cambia el color. Acabado metálico satinado sobrio: sin destellos blancos, halos, resplandor ni sombras exteriores; legible a 16–512 px.
 
 | Tier | Base | Luz | Sombra | Interior | Aplicaciones |
 | --- | --- | --- | --- | --- | --- |
 | Entidad Matriz | `#A8AEB8` | `#D0D4DC` | `#6E7580` | `#212838` navy | `anclora-group`, `anclora-group-landing` |
-| SaaS | `#22C7D6` | `#7DE7EE` | `#087F91` | `#0F3445` petróleo | `anclora-tableextractor`, `anclora-clearsheet`, `anclora-purgedoc` |
+| SaaS | `#22C7D6` | `#7DE7EE` | `#087F91` | `#0F3445` petróleo | `anclora-tableextractor`, `anclora-clearsheet`, `anclora-purgedoc`, `anclora-filestudio` *(migrado desde Internal, CHG-0018, 2026-09-26 — primer producto, capability Prepare, de la familia comercial Anclora SecureFlow)* |
 | Ultra Premium | `#D4AF37` | `#F0D060` | `#8B7322` | `#0D3849` teal | `anclora-private-estates`, `anclora-private-estates-landing`, `anclora-portfolio`, `anclora-azure-bay-landing`, `anclora-portfolio-showcase` |
 | Premium | `#C07860` | `#E0A090` | `#805040` | `#1A2033` navy | tier `premium` del registro + showcases derivadas |
 | Internal | `#1DAB89` | `#63D8B7` | `#0E6D5B` | `#15211F` carbón verdoso | tier `internal` del registro + showcases derivadas |
@@ -89,7 +89,7 @@ Ondas = mismo color que el borde. Esquema monocromático.
 | Interna | `anclora-advisor-ai` | Plata | `#1DAB89` teal | `#162944` navy azul | 162° |
 | Interna | `anclora-nexus` | Plata | `#D4AF37` oro | `#192350` navy índigo | 45° |
 | Interna | `anclora-content-generator-ai` | Plata | `#E06848` coral | `#1A1410` carbón cálido | 12° |
-| Interna | `anclora-filestudio` *(añadido 2026-08)* | Plata | `#4FB3BF` teal claro *(sin matiz de marca propio confirmado en el repo — asignado para wayfinding)* | `#0D0F12` carbón neutro *(interior inferido del fondo real del producto, no verificado píxel a píxel en el icono ya generado)* | 186° |
+| Interna *(histórico — migrado a SaaS, ver CHG-0018)* | `anclora-filestudio` *(añadido 2026-08; migrado a tier SaaS 2026-09-26)* | Plata | `#4FB3BF` teal claro *(sin matiz de marca propio confirmado en el repo — asignado para wayfinding)* | `#0D0F12` carbón neutro *(interior inferido del fondo real del producto, no verificado píxel a píxel en el icono ya generado)* | 186° |
 | Interna | `anclora-fiscal` *(añadido 2026-08)* | Plata | `#D7A957` dorado | `#070C13` navy profundo *(inferido del fondo real del producto)* | 38° |
 | Interna | `anclora-visionflow` *(añadido 2026-08)* | Plata | `#5C70D8` índigo | `#0F1520` navy índigo *(inferido del fondo real del producto)* | 230° |
 | Interna | `anclora-linguo-cam` *(añadido 2026-08-02)* | Plata | `#619D4A` verde lima (gradiente `#2A4A1B`→`#E2F5DC`, verificado píxel a píxel sobre el PNG canónico) | Verde pastel claro (gradiente `#9FC792`→`#E7FFD4`, verificado píxel a píxel — interior claro, excepción frente al navy oscuro habitual del grupo) | 103° |
@@ -97,7 +97,7 @@ Ondas = mismo color que el borde. Esquema monocromático.
 | Premium | `anclora-data-lab` | Cobre | `#2DA078` esmeralda | `#12201C` navy verde | 155° |
 | Premium | `anclora-talent` *(pausado)* | Cobre | `#4A9FD8` azul cielo | `#141E28` navy azul | 205° |
 | Premium | `anclora-synergi` | Cobre | `#8C5AB4` púrpura | `#1C162A` navy púrpura | 280° |
-| Premium | `anclora-command-center` | Azul/violeta | `#6C63FF` violeta premium + `#5FA8FF` azul luminoso | `#1E1A2E` navy púrpura | 245° |
+| Internal | `anclora-command-center` | Teal | `#6C63FF` violeta funcional + `#5FA8FF` azul luminoso | `#1E1A2E` navy púrpura | 245° *(tier migrado por CHG-0019; acento funcional conservado)* |
 | Premium | `anclora-guesthub` *(añadido 2026-08 como `anclora-syncxml`; renombrado a GuestHub 2026-08)* | Cobre | `#BFA46A` dorado apagado | `#070A12` navy profundo *(inferido del fondo real del producto)* | 41° |
 | Premium | `anclora-groundsync` *(añadido 2026-08-03, reasignado)* | Cobre | `#6AAD49` verde musgo *(reasignado para resolver colisión con Talent; icono regenerado y verificado, CSS de la app aún en `#afd2fa` azul, pendiente de sincronizar)* | `#0f1739` navy azulado *(verificado, `--color-bg-base` dark)* | 100° |
 | Ultra | `anclora-private-estates` | Oro | `#D4AF37` oro | `#1A3035` teal oscuro | 45° |

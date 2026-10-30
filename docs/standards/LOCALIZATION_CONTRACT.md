@@ -49,7 +49,6 @@ Cobertura objetivo por aplicación:
 - `anclora-private-estates`
 - `anclora-portfolio`
 - `anclora-azure-bay-landing`
-- `anclora-playa-viva-uniestate`
 
 Nota:
 - `anclora-group` mantiene la autoridad matriz de marca y gobernanza, pero no es target normal de propagación de este contrato transversal.

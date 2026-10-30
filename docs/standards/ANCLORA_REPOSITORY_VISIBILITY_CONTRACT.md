@@ -23,7 +23,7 @@ sin revisión previa.
 | `premium` | Privado; showcase público separado |
 | `ultra_premium` | Privado; solo la landing pública |
 | `portfolio_showcase` | Público |
-| `microsaas` | Público *(añadido 2026-09-25, CHG-0014: `anclora-tableextractor`, `anclora-clearsheet`, `anclora-purgedoc`)* |
+| `microsaas` | Público *(añadido 2026-09-25, CHG-0014: `anclora-tableextractor`, `anclora-cleansheet`, `anclora-purgedoc`)* |
 | `independent_product` | Público |
 | `shared` | Privado salvo declaración open-source aprobada |
 | `labs` | Privado o archivado |
@@ -83,10 +83,6 @@ Se admite excepción cuando exista una razón documentada:
 - repo archivado que debe permanecer privado por historia, datos o dependencia sensible
 
 La excepción no puede contradecir contratos de marca, privacidad, AI Act, texto o familia.
-
-Excepción registrada: `anclora-insights` puede permanecer privado aunque se clasifique como
-`independent_product`, porque conserva materiales editoriales originales y contexto estratégico
-no preparado para distribución pública.
 
 ## Procedimiento para solicitar excepción
 
